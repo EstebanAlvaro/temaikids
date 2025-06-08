@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temaikids - Juguetería y Articulos de Bebés</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* ...existing code... */
+    </style>
+</head>
+<body>
+    <header>
+        <img src="C:\Users\aaddi\OneDrive\Escritorio\PWDC\paperval\img\logo paperval.jpg" alt="Logo de Temaikids">
+    </header>
+
+    <nav>
+        <a onclick="showSection('juguetes-0-3')">Juguetes niño 0 a 3 años</a>
+        <a onclick="showSection('juguetes-4-11')">Juguetes de 4 a 11 años</a>
+        <a onclick="showSection('coches-bebe')">Coches de Bebé</a>
+        <a onclick="showSection('cunas-practicunas')">Cunas y Practicunas</a>
+    </nav>
+
+    <section class="hero" id="inicio">
+        <h1>Bienvenidos a Temaikids</h1>
+        <p>
+            En Temaikids, somos especialistas en ofrecer soluciones innovadoras y de alta calidad para el desarrollo y bienestar de los más pequeños.
+            Nos dedicamos a la venta de juguetes y productos para bebés en distintos formatos y categorías, diseñados para acompañar cada etapa de crecimiento.
+
+            Nuestra línea de productos incluye:
+
+            Juguetes para niños de 0 a 3 años, ideales para estimular los sentidos y el aprendizaje temprano.<br>
+            Juguetes para niños de 4 a 11 años, pensados para la creatividad, el juego y la diversión.<br>
+            Coches de bebé, prácticos y seguros para cada paseo.<br>
+            Cunas y practicunas, brindando comodidad y seguridad para el descanso de tu bebé.<br>
+            En Temaikids, combinamos calidad, variedad y creatividad para satisfacer las necesidades de nuestros clientes,
+            tanto para el sector familiar como para quienes buscan el regalo perfecto. Nuestro objetivo es ser la elección preferida para acompañar momentos especiales,
+            con productos que se destacan por su diseño y funcionalidad.
+
+            ¡Descubre cómo podemos agregar un toque especial a la infancia de tus hijos!
+        </p>
+    </section>
+
+    <section class="catalogo hidden" id="juguetes-0-3">
+        <h2>Juguetes para niños de 0 a 3 años</h2>
+        <div class="gallery">
+            <!-- Aquí puedes agregar los productos de esta categoría -->
+            <div class="gallery-item">
+                <img src="ruta/a/tu/imagen1.jpg" alt="Juguete 0-3 años 1">
+                <p>Ejemplo de Juguete 0-3 años</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="catalogo hidden" id="juguetes-4-11">
+        <h2>Juguetes para niños de 4 a 11 años</h2>
+        <div class="gallery">
+            <!-- Aquí puedes agregar los productos de esta categoría -->
+            <div class="gallery-item">
+                <img src="ruta/a/tu/imagen2.jpg" alt="Juguete 4-11 años 1">
+                <p>Ejemplo de Juguete 4-11 años</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="catalogo hidden" id="coches-bebe">
+        <h2>Coches de Bebé</h2>
+        <div class="gallery">
+            <!-- Aquí puedes agregar los productos de esta categoría -->
+            <div class="gallery-item">
+                <img src="ruta/a/tu/imagen3.jpg" alt="Coche de Bebé 1">
+                <p>Ejemplo de Coche de Bebé</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="catalogo hidden" id="cunas-practicunas">
+        <h2>Cunas y Practicunas</h2>
+        <div class="gallery">
+            <!-- Aquí puedes agregar los productos de esta categoría -->
+            <div class="gallery-item">
+                <img src="ruta/a/tu/imagen4.jpg" alt="Cuna o Practicuna 1">
+                <p>Ejemplo de Cuna o Practicuna</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta" id="comprar">
+        <h2>¿Cómo Comprar?</h2>
+        <p>1. Explora nuestro catálogo y elige tus productos favoritos.</p>
+        <p>2. Contáctanos por WhatsApp: <a href="https://wa.me/59893588349">+598 9358 8349</a>.</p>
+        <p>3. Realiza el pago por Mercado Pago a través de nuestro QR o enlace.</p>
+    </section>
+
+    <section class="cta" id="contacto">
+        <h2>Contacto</h2>
+        <p>Teléfono: +598 9358 8349</p>
+        <p>Síguenos en: <a href="https://instagram.com/paperval_">Instagram</a> | <a href="https://facebook.com/Valpaper">Facebook</a></p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Temaikids. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('.catalogo');
+            sections.forEach(section => section.classList.add('hidden'));
+
+            // Verifica si el elemento existe antes de quitar la clase
+            const targetSection = document.getElementById(sectionId);
+            if (targetSection) {
+                targetSection.classList.remove('hidden');
+            } else {
+                console.error(`No se encontró la sección con ID: ${sectionId}`);
+            }
+        }
+    </script>
+    <script>
+function moveSlide(carouselId, direction) {
+    const carousel = document.getElementById(carouselId);
+    const images = carousel.querySelectorAll('.carousel-img');
+    let current = Array.from(images).findIndex(img => img.classList.contains('active'));
+    images[current].classList.remove('active');
+    let next = (current + direction + images.length) % images.length;
+    images[next].classList.add('active');
+}
+</script>
+</body>
+</html>
