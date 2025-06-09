@@ -11,7 +11,7 @@
 </head>
 <body>
     <header>
-        <img src="C:\Users\aaddi\OneDrive\Escritorio\PWDC\paperval\img\logo paperval.jpg" alt="Logo de Temaikids">
+        <img src="img/logo-temaikids.jpg" alt="Logo de Temaikids">
     </header>
 
     <nav>
@@ -25,61 +25,42 @@
         <h1>Bienvenidos a Temaikids</h1>
         <p>
             En Temaikids, somos especialistas en ofrecer soluciones innovadoras y de alta calidad para el desarrollo y bienestar de los más pequeños.
-            Nos dedicamos a la venta de juguetes y productos para bebés en distintos formatos y categorías, diseñados para acompañar cada etapa de crecimiento.
-
-            Nuestra línea de productos incluye:
-
-            Juguetes para niños de 0 a 3 años, ideales para estimular los sentidos y el aprendizaje temprano.<br>
-            Juguetes para niños de 4 a 11 años, pensados para la creatividad, el juego y la diversión.<br>
-            Coches de bebé, prácticos y seguros para cada paseo.<br>
-            Cunas y practicunas, brindando comodidad y seguridad para el descanso de tu bebé.<br>
-            En Temaikids, combinamos calidad, variedad y creatividad para satisfacer las necesidades de nuestros clientes,
-            tanto para el sector familiar como para quienes buscan el regalo perfecto. Nuestro objetivo es ser la elección preferida para acompañar momentos especiales,
-            con productos que se destacan por su diseño y funcionalidad.
-
-            ¡Descubre cómo podemos agregar un toque especial a la infancia de tus hijos!
         </p>
     </section>
 
+    <!-- Ejemplo de imágenes con rutas relativas para GitHub Pages -->
     <section class="catalogo hidden" id="juguetes-0-3">
         <h2>Juguetes para niños de 0 a 3 años</h2>
         <div class="gallery">
-            <!-- Aquí puedes agregar los productos de esta categoría -->
             <div class="gallery-item">
-                <img src="ruta/a/tu/imagen1.jpg" alt="Juguete 0-3 años 1">
+                <img src="img/juguete-0-3-1.jpg" alt="Juguete 0-3 años 1">
                 <p>Ejemplo de Juguete 0-3 años</p>
             </div>
         </div>
     </section>
-
     <section class="catalogo hidden" id="juguetes-4-11">
         <h2>Juguetes para niños de 4 a 11 años</h2>
         <div class="gallery">
-            <!-- Aquí puedes agregar los productos de esta categoría -->
             <div class="gallery-item">
-                <img src="ruta/a/tu/imagen2.jpg" alt="Juguete 4-11 años 1">
+                <img src="img/juguete-4-11-1.jpg" alt="Juguete 4-11 años 1">
                 <p>Ejemplo de Juguete 4-11 años</p>
             </div>
         </div>
     </section>
-
     <section class="catalogo hidden" id="coches-bebe">
         <h2>Coches de Bebé</h2>
         <div class="gallery">
-            <!-- Aquí puedes agregar los productos de esta categoría -->
             <div class="gallery-item">
-                <img src="ruta/a/tu/imagen3.jpg" alt="Coche de Bebé 1">
+                <img src="img/coche-bebe-1.jpg" alt="Coche de Bebé 1">
                 <p>Ejemplo de Coche de Bebé</p>
             </div>
         </div>
     </section>
-
     <section class="catalogo hidden" id="cunas-practicunas">
         <h2>Cunas y Practicunas</h2>
         <div class="gallery">
-            <!-- Aquí puedes agregar los productos de esta categoría -->
             <div class="gallery-item">
-                <img src="ruta/a/tu/imagen4.jpg" alt="Cuna o Practicuna 1">
+                <img src="img/cuna-practicuna-1.jpg" alt="Cuna o Practicuna 1">
                 <p>Ejemplo de Cuna o Practicuna</p>
             </div>
         </div>
@@ -117,14 +98,14 @@
         }
     </script>
     <script>
-function moveSlide(carouselId, direction) {
-    const carousel = document.getElementById(carouselId);
-    const images = carousel.querySelectorAll('.carousel-img');
-    let current = Array.from(images).findIndex(img => img.classList.contains('active'));
-    images[current].classList.remove('active');
-    let next = (current + direction + images.length) % images.length;
-    images[next].classList.add('active');
-}
-</script>
+        function moveSlide(carouselId, direction) {
+            const carousel = document.getElementById(carouselId);
+            const images = carousel.querySelectorAll('.carousel-img');
+            let current = Array.from(images).findIndex(img => img.classList.contains('active'));
+            images[current].classList.remove('active');
+            let next = (current + direction + images.length) % images.length;
+            images[next].classList.add('active');
+        }
+    </script>
 </body>
 </html>
