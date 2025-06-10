@@ -40,49 +40,46 @@
         nav a:hover {
             background: #d1e7ff;
         }
-        .hero {
-            text-align: center;
-            padding: 2rem 1rem 1rem 1rem;
+        .section {
             background: #fff;
-        }
-        .catalogo {
-            padding: 2rem 0 1rem 0;
-            text-align: center;
-        }
-        .catalogo.hidden {
-            display: none;
+            margin: 2rem auto 0 auto;
+            max-width: 800px;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+            padding: 2rem 1rem;
         }
         .gallery {
             display: flex;
             flex-wrap: wrap;
-            justify-content: center;
+            justify-content: flex-start;
             gap: 2rem;
             margin-top: 1rem;
         }
         .gallery-item {
-            background: #fff;
+            background: #f8f8f8;
             border-radius: 12px;
             box-shadow: 0 2px 12px rgba(0,0,0,0.06);
             padding: 1rem;
-            max-width: 500px;
+            width: 200px;
         }
         .gallery-item img {
             width: 100%;
-            max-width: 500px;
-            height: auto;
+            max-width: 180px;
+            height: 140px;
+            object-fit: cover;
             display: block;
             margin: 0 auto 1rem auto;
             border-radius: 10px;
             box-shadow: 0 1px 6px rgba(0,0,0,0.09);
         }
-        .cta {
+        .how-to-buy, .contacto {
             background: #fff;
             margin: 2rem auto 0 auto;
-            max-width: 500px;
+            max-width: 800px;
             border-radius: 12px;
             box-shadow: 0 2px 12px rgba(0,0,0,0.04);
             padding: 2rem 1rem;
-            text-align: center;
+            text-align: left;
         }
         footer {
             background: #e0e0e0;
@@ -106,46 +103,9 @@
         .social-icons .fa-whatsapp { color: #25D366; }
         .social-icons .fa-instagram { color: #E1306C; }
         .social-icons .fa-facebook { color: #1877F3; }
-        .subnav {
-            margin-bottom: 2rem;
-        }
-        .subnav a {
-            padding: 0.4rem 1.2rem;
-            margin: 0 0.5rem;
-            border-radius: 6px;
-            background: #f4f4f4;
-            color: #333;
-            text-decoration: none;
-            font-weight: 500;
-            border: 1px solid #bbb;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-        .subnav a.active,
-        .subnav a:hover {
-            background: #d1e7ff;
-            color: #111;
-            border-color: #5fa8ff;
-        }
-        @media (max-width: 800px) {
-            .gallery-item img {
-                max-width: 90vw;
-            }
-            header img {
-                max-width: 90vw;
-            }
-        }
-        @media (max-width: 500px) {
-            nav {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-            header img {
-                max-width: 90vw;
-            }
-            .cta {
-                padding: 1rem 0.5rem;
-            }
+        @media (max-width: 900px) {
+            .gallery { flex-direction: column; align-items: center; }
+            .gallery-item { width: 90%; max-width: 300px; }
         }
     </style>
 </head>
@@ -153,21 +113,87 @@
     <header>
         <img src="img/logo-temaikids.jpg" alt="Logo de Temaikids">
     </header>
-
     <nav>
-        <!-- Aquí va tu navegación. No se ve completa en el fragmento original -->
+        <a href="#juguetes0a3">Juguetes niño 0 a 3 años</a>
+        <a href="#juguetes4a11">Juguetes de 4 a 11 años</a>
+        <a href="#coches">Coches de Bebé</a>
+        <a href="#cunas">Cunas y Practicunas</a>
     </nav>
 
-    <div class="hero">
+    <div class="section hero">
         <h1>Bienvenidos a Temaikids</h1>
-        <p>Juguetería y artículos para bebés en tu ciudad.</p>
+        <p>En Temaikids, somos especialistas en ofrecer soluciones innovadoras y de alta calidad para el desarrollo y bienestar de los más pequeños.</p>
     </div>
 
-    <!-- Aquí puedes colocar el resto de tu contenido principal -->
+    <div class="section" id="juguetes0a3">
+        <h2>Juguetes para niños de 0 a 3 años</h2>
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="img/juguete0-3-1.jpg" alt="Juguete 0-3 años 1">
+                <h3>Juguete 0-3 años 1</h3>
+                <p>Ejemplo de Juguete 0-3 años</p>
+            </div>
+            <!-- Más juguetes aquí -->
+        </div>
+    </div>
+
+    <div class="section" id="juguetes4a11">
+        <h2>Juguetes para niños de 4 a 11 años</h2>
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="img/juguete4-11-1.jpg" alt="Juguete 4-11 años 1">
+                <h3>Juguete 4-11 años 1</h3>
+                <p>Ejemplo de Juguete 4-11 años</p>
+            </div>
+            <!-- Más juguetes aquí -->
+        </div>
+    </div>
+
+    <div class="section" id="coches">
+        <h2>Coches de Bebé</h2>
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="img/cochebebe1.jpg" alt="Coche de Bebé 1">
+                <h3>Coche de Bebé 1</h3>
+                <p>Ejemplo de Coche de Bebé</p>
+            </div>
+            <!-- Más coches aquí -->
+        </div>
+    </div>
+
+    <div class="section" id="cunas">
+        <h2>Cunas y Practicunas</h2>
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="img/cuna1.jpg" alt="Cuna o Practicuna 1">
+                <h3>Cuna o Practicuna 1</h3>
+                <p>Ejemplo de Cuna o Practicuna</p>
+            </div>
+            <!-- Más cunas aquí -->
+        </div>
+    </div>
+
+    <div class="how-to-buy">
+        <h2>¿Cómo Comprar?</h2>
+        <ol>
+            <li>Explora nuestro catálogo y elige tus productos favoritos.</li>
+            <li>Contáctanos por WhatsApp: <a href="https://wa.me/59893588349" target="_blank">+598 9358 8349</a>.</li>
+            <li>Realiza el pago por Mercado Pago a través de nuestro QR o enlace.</li>
+        </ol>
+    </div>
+
+    <div class="contacto">
+        <h2>Contacto</h2>
+        <p>Teléfono: <a href="tel:+59893588349">+598 9358 8349</a></p>
+        <p>Síguenos en:
+            <a href="https://www.instagram.com/temaikids/?hl=es-la" target="_blank"><i class="fab fa-instagram"></i> Instagram</a> |
+            <a href="https://www.facebook.com/p/Temaikids-100057246288639/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
+        </p>
+    </div>
 
     <footer>
         <div class="social-icons">
-            <a href="https://wa.me/549XXXXXXXXXX" target="_blank" title="WhatsApp">
+            <a href="https://wa.me/59893588349" target="_blank" title="WhatsApp">
                 <i class="fab fa-whatsapp"></i>
             </a>
             <a href="https://www.instagram.com/temaikids/?hl=es-la" target="_blank" title="Instagram">
@@ -177,7 +203,7 @@
                 <i class="fab fa-facebook"></i>
             </a>
         </div>
-        © 2025 Temaikids. Todos los derechos reservados.
+        © 2024 Temaikids. Todos los derechos reservados.
     </footer>
 </body>
 </html>
