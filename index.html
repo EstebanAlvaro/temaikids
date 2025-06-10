@@ -3,10 +3,133 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Temaikids - Juguetería y Articulos de Bebés</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Temaikids - Juguetería y Artículos de Bebés</title>
     <style>
-        /* ...existing code... */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #f9f9f9;
+        }
+        header img {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            display: block;
+            margin: 2rem auto 1rem auto;
+        }
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            background: #e0e0e0;
+            padding: 1rem 0;
+        }
+        nav a {
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            background: #fff;
+            color: #444;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.2s;
+            cursor: pointer;
+        }
+        nav a:hover {
+            background: #d1e7ff;
+        }
+        .hero {
+            text-align: center;
+            padding: 2rem 1rem 1rem 1rem;
+            background: #fff;
+        }
+        .catalogo {
+            padding: 2rem 0 1rem 0;
+            text-align: center;
+        }
+        .catalogo.hidden {
+            display: none;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+        .gallery-item {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            padding: 1rem;
+            max-width: 500px;
+        }
+        .gallery-item img {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+            display: block;
+            margin: 0 auto 1rem auto;
+            border-radius: 10px;
+            box-shadow: 0 1px 6px rgba(0,0,0,0.09);
+        }
+        .cta {
+            background: #fff;
+            margin: 2rem auto 0 auto;
+            max-width: 500px;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+        footer {
+            background: #e0e0e0;
+            padding: 1rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+        .subnav {
+            margin-bottom: 2rem;
+        }
+        .subnav a {
+            padding: 0.4rem 1.2rem;
+            margin: 0 0.5rem;
+            border-radius: 6px;
+            background: #f4f4f4;
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            border: 1px solid #bbb;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .subnav a.active,
+        .subnav a:hover {
+            background: #d1e7ff;
+            color: #111;
+            border-color: #5fa8ff;
+        }
+        @media (max-width: 800px) {
+            .gallery-item img {
+                max-width: 90vw;
+            }
+            header img {
+                max-width: 90vw;
+            }
+        }
+        @media (max-width: 500px) {
+            nav {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            header img {
+                max-width: 90vw;
+            }
+            .cta {
+                padding: 1rem 0.5rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -15,97 +138,5 @@
     </header>
 
     <nav>
-        <a onclick="showSection('juguetes-0-3')">Juguetes niño 0 a 3 años</a>
-        <a onclick="showSection('juguetes-4-11')">Juguetes de 4 a 11 años</a>
-        <a onclick="showSection('coches-bebe')">Coches de Bebé</a>
-        <a onclick="showSection('cunas-practicunas')">Cunas y Practicunas</a>
-    </nav>
-
-    <section class="hero" id="inicio">
-        <h1>Bienvenidos a Temaikids</h1>
-        <p>
-            En Temaikids, somos especialistas en ofrecer soluciones innovadoras y de alta calidad para el desarrollo y bienestar de los más pequeños.
-        </p>
-    </section>
-
-    <!-- Ejemplo de imágenes con rutas relativas para GitHub Pages -->
-    <section class="catalogo hidden" id="juguetes-0-3">
-        <h2>Juguetes para niños de 0 a 3 años</h2>
-        <div class="gallery">
-            <div class="gallery-item">
-                <img src="img/juguete-0-3-1.jpg" alt="Juguete 0-3 años 1">
-                <p>Ejemplo de Juguete 0-3 años</p>
-            </div>
-        </div>
-    </section>
-    <section class="catalogo hidden" id="juguetes-4-11">
-        <h2>Juguetes para niños de 4 a 11 años</h2>
-        <div class="gallery">
-            <div class="gallery-item">
-                <img src="img/juguete-4-11-1.jpg" alt="Juguete 4-11 años 1">
-                <p>Ejemplo de Juguete 4-11 años</p>
-            </div>
-        </div>
-    </section>
-    <section class="catalogo hidden" id="coches-bebe">
-        <h2>Coches de Bebé</h2>
-        <div class="gallery">
-            <div class="gallery-item">
-                <img src="img/coche-bebe-1.jpg" alt="Coche de Bebé 1">
-                <p>Ejemplo de Coche de Bebé</p>
-            </div>
-        </div>
-    </section>
-    <section class="catalogo hidden" id="cunas-practicunas">
-        <h2>Cunas y Practicunas</h2>
-        <div class="gallery">
-            <div class="gallery-item">
-                <img src="img/cuna-practicuna-1.jpg" alt="Cuna o Practicuna 1">
-                <p>Ejemplo de Cuna o Practicuna</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="cta" id="comprar">
-        <h2>¿Cómo Comprar?</h2>
-        <p>1. Explora nuestro catálogo y elige tus productos favoritos.</p>
-        <p>2. Contáctanos por WhatsApp: <a href="https://wa.me/59893588349">+598 9358 8349</a>.</p>
-        <p>3. Realiza el pago por Mercado Pago a través de nuestro QR o enlace.</p>
-    </section>
-
-    <section class="cta" id="contacto">
-        <h2>Contacto</h2>
-        <p>Teléfono: +598 9358 8349</p>
-        <p>Síguenos en: <a href="https://instagram.com/paperval_">Instagram</a> | <a href="https://facebook.com/Valpaper">Facebook</a></p>
-    </section>
-
-    <footer>
-        <p>&copy; 2024 Temaikids. Todos los derechos reservados.</p>
-    </footer>
-
-    <script>
-        function showSection(sectionId) {
-            const sections = document.querySelectorAll('.catalogo');
-            sections.forEach(section => section.classList.add('hidden'));
-
-            // Verifica si el elemento existe antes de quitar la clase
-            const targetSection = document.getElementById(sectionId);
-            if (targetSection) {
-                targetSection.classList.remove('hidden');
-            } else {
-                console.error(`No se encontró la sección con ID: ${sectionId}`);
-            }
-        }
-    </script>
-    <script>
-        function moveSlide(carouselId, direction) {
-            const carousel = document.getElementById(carouselId);
-            const images = carousel.querySelectorAll('.carousel-img');
-            let current = Array.from(images).findIndex(img => img.classList.contains('active'));
-            images[current].classList.remove('active');
-            let next = (current + direction + images.length) % images.length;
-            images[next].classList.add('active');
-        }
-    </script>
-</body>
-</html>
+        <a onclick="showSection('juguetes-
+
