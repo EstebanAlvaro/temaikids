@@ -255,9 +255,39 @@
             .lightbox-content img { max-width: 99vw; }
             .lightbox-prev, .lightbox-next { left: 4px; right: 4px; top: 90%; }
         }
+
+        /* --- Booster protagonista estilos --- */
+        .gallery.protagonista {
+            width: 100%;
+            max-width: 98vw;
+            justify-content: center;
+            gap: 3rem;
+        }
+        .product-card.protagonista {
+            width: 98vw;
+            max-width: 1150px;
+            min-height: 420px;
+            padding: 2.5rem 2.5rem;
+            font-size: 1.18em;
+        }
+        .product-card.protagonista .product-main-img {
+            max-width: 350px;
+            height: 260px;
+        }
+        .product-card.protagonista .product-thumbs {
+            gap: 0.8rem;
+        }
+        @media (max-width: 900px) {
+            .product-card.protagonista {
+                width: 99vw;
+                max-width: 99vw;
+                padding: 1rem 0.2rem;
+                font-size: 1em;
+            }
+        }
     </style>
     <script>
-        // Mostrar secciones
+        // ... Tu JavaScript original ...
         function mostrarSeccion(id) {
             const secciones = document.querySelectorAll('.seccion-productos');
             secciones.forEach(s => {s.style.display = 'none'; s.classList.remove('visible');});
@@ -279,7 +309,6 @@
                 document.querySelector('.contacto').classList.add('visible');
             }, 300);
         }
-        // Galería de productos (miniaturas)
         function setMainImage(cardId, imgIdx) {
             const card = document.getElementById(cardId);
             const mainImg = card.querySelector('.product-main-img');
@@ -289,14 +318,11 @@
             thumbs[imgIdx].classList.add('selected');
             mainImg.dataset.imgidx = imgIdx;
         }
-        // Lightbox
         var lightboxImages = [];
         var lightboxIndex = 0;
         function openLightboxFromCard(cardId) {
             const card = document.getElementById(cardId);
-            // Todas las rutas de miniaturas en data-full
             lightboxImages = Array.from(card.querySelectorAll('.product-thumb')).map(t => t.dataset.full);
-            // Imagen seleccionada
             lightboxIndex = parseInt(card.querySelector('.product-main-img').dataset.imgidx) || 0;
             showLightboxImg();
             document.getElementById('lightbox-bg').classList.add('active');
@@ -410,8 +436,8 @@
         <!-- Sillas y artículos para bebé -->
         <div class="section seccion-productos" id="sillasbebe">
             <h2>Sillas y artículos para bebé</h2>
-            <div class="gallery">
-                <div class="product-card" id="prod4">
+            <div class="gallery protagonista">
+                <div class="product-card protagonista" id="prod4">
                     <img class="product-main-img" src="img/bebesit-booster-convertible-suzuka-9-a-36-kg-bebesit-booster-convertible-suzuka-9-a-36-kg.webp" data-imgidx="0" alt="Bebesit Booster Convertible Suzuka" onclick="openLightboxFromCard('prod4')">
                     <div class="product-thumbs">
                         <img class="product-thumb selected" data-full="img/bebesit-booster-convertible-suzuka-9-a-36-kg-bebesit-booster-convertible-suzuka-9-a-36-kg.webp" src="img/bebesit-booster-convertible-suzuka-9-a-36-kg-bebesit-booster-convertible-suzuka-9-a-36-kg.webp" alt="Booster Suzuka vista 1" onclick="setMainImage('prod4',0)">
