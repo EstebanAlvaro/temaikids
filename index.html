@@ -6,7 +6,110 @@
     <title>Temaikids - Juguetería y Articulos de Bebés</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* ...existing code... */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #f9f9f9;
+        }
+        header img {
+            max-width: 200px;
+            width: 60vw;
+            height: auto;
+            display: block;
+            margin: 2rem auto 1rem auto;
+        }
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            background: #e0e0e0;
+            padding: 1rem 0;
+        }
+        nav a {
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            background: #fff;
+            color: #444;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.2s;
+            cursor: pointer;
+        }
+        nav a:hover {
+            background: #d1e7ff;
+        }
+        .hero {
+            text-align: center;
+            padding: 2rem 1rem 1rem 1rem;
+            background: #fff;
+        }
+        .catalogo {
+            padding: 2rem 0 1rem 0;
+            text-align: center;
+        }
+        .catalogo.hidden {
+            display: none;
+        }
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+        .gallery-item {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            padding: 1rem;
+            max-width: 340px;
+        }
+        .gallery-item img {
+            max-width: 250px;
+            width: 80vw;
+            height: auto;
+            display: block;
+            margin: 0 auto 1rem auto;
+            border-radius: 10px;
+            box-shadow: 0 1px 6px rgba(0,0,0,0.09);
+        }
+        .cta {
+            background: #fff;
+            margin: 2rem auto 0 auto;
+            max-width: 500px;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+        footer {
+            background: #e0e0e0;
+            padding: 1rem;
+            text-align: center;
+            margin-top: 2rem;
+        }
+        @media (max-width: 800px) {
+            .gallery-item img {
+                max-width: 90vw;
+            }
+            header img {
+                max-width: 120px;
+            }
+        }
+        @media (max-width: 500px) {
+            nav {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            header img {
+                max-width: 90px;
+            }
+            .cta {
+                padding: 1rem 0.5rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -28,7 +131,6 @@
         </p>
     </section>
 
-    <!-- Ejemplo de imágenes con rutas relativas para GitHub Pages -->
     <section class="catalogo hidden" id="juguetes-0-3">
         <h2>Juguetes para niños de 0 a 3 años</h2>
         <div class="gallery">
@@ -87,24 +189,12 @@
         function showSection(sectionId) {
             const sections = document.querySelectorAll('.catalogo');
             sections.forEach(section => section.classList.add('hidden'));
-
-            // Verifica si el elemento existe antes de quitar la clase
             const targetSection = document.getElementById(sectionId);
             if (targetSection) {
                 targetSection.classList.remove('hidden');
             } else {
                 console.error(`No se encontró la sección con ID: ${sectionId}`);
             }
-        }
-    </script>
-    <script>
-        function moveSlide(carouselId, direction) {
-            const carousel = document.getElementById(carouselId);
-            const images = carousel.querySelectorAll('.carousel-img');
-            let current = Array.from(images).findIndex(img => img.classList.contains('active'));
-            images[current].classList.remove('active');
-            let next = (current + direction + images.length) % images.length;
-            images[next].classList.add('active');
         }
     </script>
 </body>
