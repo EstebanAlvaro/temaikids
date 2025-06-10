@@ -14,7 +14,7 @@
         }
         header img {
             width: 100%;
-            max-width: 500px;
+            max-width: 320px;
             height: auto;
             display: block;
             margin: 2rem auto 1rem auto;
@@ -43,7 +43,7 @@
         .section {
             background: #fff;
             margin: 2rem auto 0 auto;
-            max-width: 800px;
+            max-width: 1000px;
             border-radius: 12px;
             box-shadow: 0 2px 12px rgba(0,0,0,0.04);
             padding: 2rem 1rem;
@@ -60,26 +60,38 @@
             border-radius: 12px;
             box-shadow: 0 2px 12px rgba(0,0,0,0.06);
             padding: 1rem;
-            width: 200px;
+            width: 230px;
+            box-sizing: border-box;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.12s;
+        }
+        .gallery-item:hover {
+            transform: translateY(-4px) scale(1.03);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.10);
         }
         .gallery-item img {
             width: 100%;
-            max-width: 180px;
-            height: 140px;
+            max-width: 200px;
+            height: 150px;
             object-fit: cover;
             display: block;
             margin: 0 auto 1rem auto;
             border-radius: 10px;
             box-shadow: 0 1px 6px rgba(0,0,0,0.09);
+            background: #eee;
         }
         .how-to-buy, .contacto {
             background: #fff;
             margin: 2rem auto 0 auto;
-            max-width: 800px;
+            max-width: 1000px;
             border-radius: 12px;
             box-shadow: 0 2px 12px rgba(0,0,0,0.04);
             padding: 2rem 1rem;
             text-align: left;
+        }
+        .how-to-buy ol {
+            padding-left: 1.2em;
         }
         footer {
             background: #e0e0e0;
@@ -90,22 +102,88 @@
         .social-icons {
             margin-top: 1rem;
         }
-        .social-icons a {
-            margin: 0 10px;
-            text-decoration: none;
-            display: inline-block;
-        }
-        .social-icons i {
-            font-size: 2em;
+        .social-icons img {
+            width: 40px;
+            height: 40px;
+            margin: 0 8px;
+            border-radius: 50%;
             vertical-align: middle;
-            transition: color 0.2s;
+            object-fit: cover;
+            transition: transform 0.2s;
         }
-        .social-icons .fa-whatsapp { color: #25D366; }
-        .social-icons .fa-instagram { color: #E1306C; }
-        .social-icons .fa-facebook { color: #1877F3; }
+        .social-icons img:hover {
+            transform: scale(1.08);
+            box-shadow: 0 3px 12px rgba(0,0,0,0.12);
+        }
+
+        /* Lightbox */
+        .lightbox-bg {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0; top: 0; width: 100vw; height: 100vh;
+            background: rgba(0,0,0,0.78);
+            align-items: center;
+            justify-content: center;
+        }
+        .lightbox-bg.active {
+            display: flex;
+        }
+        .lightbox-content {
+            position: relative;
+            text-align: center;
+            max-width: 96vw;
+            max-height: 96vh;
+        }
+        .lightbox-content img {
+            max-width: 80vw;
+            max-height: 75vh;
+            border-radius: 12px;
+            box-shadow: 0 4px 32px #1117;
+            background: #fff;
+        }
+        .lightbox-close,
+        .lightbox-prev,
+        .lightbox-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #fff;
+            color: #222;
+            border: none;
+            border-radius: 50%;
+            width: 38px;
+            height: 38px;
+            font-size: 1.5em;
+            cursor: pointer;
+            opacity: 0.9;
+            z-index: 2;
+            transition: background 0.15s;
+        }
+        .lightbox-close {
+            top: 8px;
+            right: 8px;
+            transform: none;
+            font-size: 1.6em;
+            width: 38px;
+            height: 38px;
+            background: #fff;
+        }
+        .lightbox-prev { left: -48px; }
+        .lightbox-next { right: -48px; }
+        @media (max-width: 1020px) {
+            .gallery { gap: 1rem; }
+        }
         @media (max-width: 900px) {
             .gallery { flex-direction: column; align-items: center; }
-            .gallery-item { width: 90%; max-width: 300px; }
+            .gallery-item { width: 95%; max-width: 320px;}
+        }
+        @media (max-width: 600px) {
+            .section, .how-to-buy, .contacto { padding: 1rem 0.2rem; }
+            nav { flex-direction: column; gap: 0.5rem; }
+            header img { max-width: 96vw; }
+            .lightbox-content img { max-width: 99vw; }
+            .lightbox-prev, .lightbox-next { left: 4px; right: 4px; top: 90%; }
         }
     </style>
 </head>
@@ -125,51 +203,88 @@
         <p>En Temaikids, somos especialistas en ofrecer soluciones innovadoras y de alta calidad para el desarrollo y bienestar de los más pequeños.</p>
     </div>
 
+    <!-- Juguetes 0 a 3 años -->
     <div class="section" id="juguetes0a3">
         <h2>Juguetes para niños de 0 a 3 años</h2>
         <div class="gallery">
-            <div class="gallery-item">
-                <img src="img/juguete0-3-1.jpg" alt="Juguete 0-3 años 1">
-                <h3>Juguete 0-3 años 1</h3>
-                <p>Ejemplo de Juguete 0-3 años</p>
+            <div class="gallery-item" onclick="openLightbox(['img/conejos.webp'])">
+                <img src="img/conejos.webp" alt="Conejos">
+                <h3>Conejos</h3>
+                <p>Juguete para bebés y niños pequeños</p>
             </div>
-            <!-- Más juguetes aquí -->
+            <div class="gallery-item" onclick="openLightbox(['img/juego-infantil-bay-dreamy-coneja-con-casa-y-accesorios-001.jpg'])">
+                <img src="img/juego-infantil-bay-dreamy-coneja-con-casa-y-accesorios-001.jpg" alt="Juego Infantil Bay Dreamy Coneja con Casa">
+                <h3>Bay Dreamy Coneja con Casa</h3>
+                <p>Juego infantil con casa y accesorios</p>
+            </div>
         </div>
     </div>
 
+    <!-- Juguetes 4 a 11 años -->
     <div class="section" id="juguetes4a11">
         <h2>Juguetes para niños de 4 a 11 años</h2>
         <div class="gallery">
-            <div class="gallery-item">
-                <img src="img/juguete4-11-1.jpg" alt="Juguete 4-11 años 1">
-                <h3>Juguete 4-11 años 1</h3>
-                <p>Ejemplo de Juguete 4-11 años</p>
+            <div class="gallery-item" onclick="openLightbox(['img/bebesit-booster-convertible-suzuka-9-a-36-kg-rojo-bebesit-booster-convertible-suzuka-9-a-36-kg-rojo (4).webp'])">
+                <img src="img/bebesit-booster-convertible-suzuka-9-a-36-kg-rojo-bebesit-booster-convertible-suzuka-9-a-36-kg-rojo (4).webp" alt="Bebesit Booster Convertible Suzuka">
+                <h3>Bebesit Booster Convertible Suzuka</h3>
+                <p>Asiento booster convertible, 9 a 36 kg, color rojo</p>
             </div>
-            <!-- Más juguetes aquí -->
         </div>
     </div>
 
+    <!-- Coches de Bebé -->
     <div class="section" id="coches">
         <h2>Coches de Bebé</h2>
         <div class="gallery">
-            <div class="gallery-item">
-                <img src="img/cochebebe1.jpg" alt="Coche de Bebé 1">
-                <h3>Coche de Bebé 1</h3>
-                <p>Ejemplo de Coche de Bebé</p>
+            <div class="gallery-item" 
+                onclick="openLightbox([
+                    'img/coche-travel-system-i-size-vox-bebesit-beige-coche-travel-system-i-size-vox-bebesit-beige.webp', 
+                    'img/coche-travel-system-i-size-vox-bebesit-beige-coche-travel-system-i-size-vox-bebesit-beige (1).webp', 
+                    'img/coche-travel-system-i-size-vox-bebesit-beige-coche-travel-system-i-size-vox-bebesit-beige (2).webp', 
+                    'img/coche-travel-system-i-size-vox-bebesit-beige-coche-travel-system-i-size-vox-bebesit-beige (3).webp', 
+                    'img/coche-travel-system-i-size-vox-bebesit-beige-coche-travel-system-i-size-vox-bebesit-beige (4).webp'
+                ])">
+                <img src="img/coche-travel-system-i-size-vox-bebesit-beige-coche-travel-system-i-size-vox-bebesit-beige.webp" alt="Coche Travel System i-Size Vox Bebesit Beige">
+                <h3>Coche Travel System i-Size Vox Bebesit Beige</h3>
+                <p>Coche de paseo travel system color beige</p>
             </div>
-            <!-- Más coches aquí -->
         </div>
     </div>
 
+    <!-- Cunas y Practicunas -->
     <div class="section" id="cunas">
         <h2>Cunas y Practicunas</h2>
         <div class="gallery">
-            <div class="gallery-item">
-                <img src="img/cuna1.jpg" alt="Cuna o Practicuna 1">
-                <h3>Cuna o Practicuna 1</h3>
-                <p>Ejemplo de Cuna o Practicuna</p>
+            <div class="gallery-item"
+                onclick="openLightbox([
+                    'img/practicuna.jpg',
+                    'img/practicuna 1.jpg',
+                    'img/practicuna 2.jpg',
+                    'img/cuna 1.jpg'
+                ])">
+                <img src="img/practicuna.jpg" alt="Practicuna">
+                <h3>Practicuna</h3>
+                <p>Practicuna multifunción</p>
             </div>
-            <!-- Más cunas aquí -->
+            <div class="gallery-item"
+                onclick="openLightbox([
+                    'img/colecho.webp',
+                    'img/colecho 2.webp'
+                ])">
+                <img src="img/colecho.webp" alt="Colecho">
+                <h3>Colecho</h3>
+                <p>Cama colecho para bebés</p>
+            </div>
+            <div class="gallery-item"
+                onclick="openLightbox([
+                    'img/cuna-colecho-easy-sleep-bebesit-gris-cuna-colecho-easy-sleep-bebesit-gris.webp',
+                    'img/cuna-colecho-easy-sleep-bebesit-gris-cuna-colecho-easy-sleep-bebesit-gris (1).webp',
+                    'img/cuna-colecho-easy-sleep-bebesit-gris-cuna-colecho-easy-sleep-bebesit-gris (2).webp'
+                ])">
+                <img src="img/cuna-colecho-easy-sleep-bebesit-gris-cuna-colecho-easy-sleep-bebesit-gris.webp" alt="Cuna Colecho Easy Sleep Bebesit Gris">
+                <h3>Cuna Colecho Easy Sleep Bebesit Gris</h3>
+                <p>Cuna colecho modelo Easy Sleep, color gris</p>
+            </div>
         </div>
     </div>
 
@@ -186,24 +301,87 @@
         <h2>Contacto</h2>
         <p>Teléfono: <a href="tel:+59893588349">+598 9358 8349</a></p>
         <p>Síguenos en:
-            <a href="https://www.instagram.com/temaikids/?hl=es-la" target="_blank"><i class="fab fa-instagram"></i> Instagram</a> |
-            <a href="https://www.facebook.com/p/Temaikids-100057246288639/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a>
+            <a href="https://www.instagram.com/temaikids/?hl=es-la" target="_blank">
+                <img src="img/instagram y facebook.jpeg" alt="Instagram" title="Instagram" style="width:28px;height:28px;vertical-align:middle;">
+                Instagram
+            </a> |
+            <a href="https://www.facebook.com/p/Temaikids-100057246288639/" target="_blank">
+                <img src="img/instagram y facebook.jpeg" alt="Facebook" title="Facebook" style="width:28px;height:28px;vertical-align:middle;">
+                Facebook
+            </a>
         </p>
     </div>
 
     <footer>
         <div class="social-icons">
             <a href="https://wa.me/59893588349" target="_blank" title="WhatsApp">
-                <i class="fab fa-whatsapp"></i>
+                <img src="img/whatsapp.jpeg" alt="WhatsApp">
             </a>
             <a href="https://www.instagram.com/temaikids/?hl=es-la" target="_blank" title="Instagram">
-                <i class="fab fa-instagram"></i>
+                <img src="img/instagram y facebook.jpeg" alt="Instagram">
             </a>
             <a href="https://www.facebook.com/p/Temaikids-100057246288639/" target="_blank" title="Facebook">
-                <i class="fab fa-facebook"></i>
+                <img src="img/instagram y facebook.jpeg" alt="Facebook">
             </a>
         </div>
         © 2024 Temaikids. Todos los derechos reservados.
     </footer>
+
+    <!-- Ligthbox/galería simple JS -->
+    <div class="lightbox-bg" id="lightbox-bg" onclick="closeLightbox(event)">
+        <div class="lightbox-content" id="lightbox-content">
+            <button class="lightbox-close" onclick="closeLightbox(event)">&times;</button>
+            <button class="lightbox-prev" onclick="lightboxPrev(event)">&lt;</button>
+            <img id="lightbox-img" src="" alt="Imagen ampliada">
+            <button class="lightbox-next" onclick="lightboxNext(event)">&gt;</button>
+        </div>
+    </div>
+    <script>
+        // Lightbox global state
+        var lightboxImages = [];
+        var lightboxIndex = 0;
+
+        function openLightbox(imgs) {
+            lightboxImages = imgs;
+            lightboxIndex = 0;
+            showLightboxImg();
+            document.getElementById('lightbox-bg').classList.add('active');
+        }
+        function showLightboxImg() {
+            var img = document.getElementById('lightbox-img');
+            if(img && lightboxImages.length) {
+                img.src = lightboxImages[lightboxIndex];
+            }
+            document.querySelector('.lightbox-prev').style.display = (lightboxIndex > 0) ? 'block' : 'none';
+            document.querySelector('.lightbox-next').style.display = (lightboxIndex < lightboxImages.length - 1) ? 'block' : 'none';
+        }
+        function closeLightbox(e) {
+            if(!e || e.target === document.getElementById('lightbox-bg') || e.target.classList.contains('lightbox-close')) {
+                document.getElementById('lightbox-bg').classList.remove('active');
+            }
+        }
+        function lightboxPrev(e) {
+            e.stopPropagation();
+            if(lightboxIndex > 0) {
+                lightboxIndex--;
+                showLightboxImg();
+            }
+        }
+        function lightboxNext(e) {
+            e.stopPropagation();
+            if(lightboxIndex < lightboxImages.length - 1) {
+                lightboxIndex++;
+                showLightboxImg();
+            }
+        }
+        // Teclado: escape/cursor
+        window.addEventListener('keydown', function(e) {
+            if(document.getElementById('lightbox-bg').classList.contains('active')) {
+                if(e.key === 'Escape') closeLightbox();
+                if(e.key === 'ArrowRight') lightboxNext(e);
+                if(e.key === 'ArrowLeft') lightboxPrev(e);
+            }
+        });
+    </script>
 </body>
 </html>
