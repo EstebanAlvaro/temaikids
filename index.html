@@ -284,7 +284,14 @@
                 padding: 1rem 0.2rem;
                 font-size: 1em;
             }
-        }
+        .product-descripcion {
+    display: none;
+    margin-top: 0.7em;
+    transition: all 0.2s;
+}
+.product-card.show-desc .product-descripcion {
+    display: block;
+}
     </style>
     <script>
         // ... Tu JavaScript original ...
@@ -361,6 +368,9 @@
                 if(e.key === 'ArrowLeft') lightboxPrev(e);
             }
         });
+        function toggleDescripcion(card) {
+    card.classList.toggle('show-desc');
+}
     </script>
 </head>
 <body>
