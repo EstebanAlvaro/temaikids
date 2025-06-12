@@ -3,203 +3,571 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Temaikids - Sillas de auto</title>
+    <title>Temaikids - Juguetería y Artículos de Bebés</title>
     <style>
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
+            background: #f9f9f9;
             margin: 0;
             padding: 0;
-            background: #f5f5f5;
         }
         header {
-            background: #6ec1e4;
-            color: #fff;
-            text-align: center;
-            padding: 2rem 1rem 1rem 1rem;
+            background: #fff;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(60,60,60,0.04);
+        }
+        header .header-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.5rem 0;
+        }
+        header img {
+            max-width: 170px;
+            height: auto;
+            margin: 0.5rem 1.5rem 0.5rem 0;
         }
         header h1 {
-            margin: 0 0 0.5rem 0;
-            font-size: 2.2rem;
-        }
-        header p {
+            font-size: 1.7rem;
+            color: #008ecf;
             margin: 0;
-            font-size: 1.2rem;
         }
-        main {
-            max-width: 1100px;
-            margin: 2rem auto;
-            padding: 1rem;
+        nav {
+            background: #008ecf;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 0.5rem 0;
+            position: sticky;
+            top: 74px;
+            z-index: 99;
+        }
+        nav a {
+            color: #fff;
+            background: transparent;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1.1rem;
+            border-radius: 6px;
+            transition: background 0.18s, color 0.15s;
+        }
+        nav a:hover, nav a.active {
             background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            color: #008ecf;
         }
-        .productos {
+        .main-container {
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 1.2rem 0.7rem 0.7rem 0.7rem;
+        }
+        .section {
+            background: #fff;
+            margin: 2rem auto 0 auto;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+            padding: 2rem 1rem;
+        }
+        .gallery {
             display: flex;
             flex-wrap: wrap;
             gap: 2rem;
-            justify-content: center;
+            justify-content: flex-start;
         }
-        .producto {
-            background: #fafafa;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+        .product-card {
+            background: #f8f8f8;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.07);
             padding: 1rem;
-            width: 320px;
-            max-width: 95vw;
+            width: 260px;
+            min-height: 320px;
             box-sizing: border-box;
-            transition: box-shadow 0.2s;
-            cursor: pointer;
-            position: relative;
-        }
-        .producto:hover {
-            box-shadow: 0 4px 20px rgba(110,193,228,0.30);
-        }
-        .producto img {
-            width: 100%;
-            height: 220px;
-            object-fit: contain;
-            border-radius: 8px;
-            background: #e0eaf1;
-            margin-bottom: 0.7rem;
-        }
-        .producto h2 {
-            font-size: 1.15rem;
-            margin: 0 0 0.5rem 0;
-            color: #2a4374;
-        }
-        .descripcion {
-            display: none;
-            color: #444;
-            font-size: 1rem;
-            background: #eaf6fb;
-            padding: 0.8rem;
-            border-radius: 8px;
-            margin: 0.7rem 0 0 0;
-        }
-        /* Galería de imágenes */
-        .galeria {
+            text-align: center;
             display: flex;
-            gap: 0.4rem;
-            margin-bottom: 0.7rem;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+        .product-main-img {
+            width: 100%;
+            max-width: 200px;
+            height: 150px;
+            object-fit: cover;
+            display: block;
+            margin: 0 auto 1rem auto;
+            border-radius: 10px;
+            background: #eee;
+            cursor: pointer;
+            transition: transform 0.23s;
+        }
+        .product-main-img:hover {
+            transform: scale(1.05) rotate(-1deg);
+        }
+        .product-thumbs {
+            display: flex;
+            justify-content: center;
+            gap: 0.5rem;
+            margin-bottom: 0.7em;
+        }
+        .product-thumb {
+            width: 44px;
+            height: 44px;
+            object-fit: cover;
+            border-radius: 7px;
+            background: #ddd;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: border 0.15s, transform 0.16s;
+        }
+        .product-thumb.selected, .product-thumb:hover {
+            border: 2px solid #008ecf;
+            transform: scale(1.07);
+        }
+        .product-title {
+            font-weight: bold;
+            color: #008ecf;
+            margin-bottom: 0.2em;
+        }
+        .product-price {
+            color: #00a878;
+            font-weight: 600;
+            margin: 0.3em 0 0.7em 0;
+        }
+        .how-to-buy, .contacto {
+            background: #fff;
+            margin: 2rem auto 0 auto;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+            padding: 2rem 1rem;
+        }
+        .social-icons {
+            margin-top: 1rem;
+        }
+        .social-icons img {
+            width: 40px;
+            height: 40px;
+            margin: 0 8px;
+            border-radius: 50%;
+            vertical-align: middle;
+            object-fit: cover;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .social-icons img:hover {
+            transform: scale(1.14) rotate(-12deg);
+            box-shadow: 0 3px 12px rgba(0,0,0,0.15);
+        }
+        footer {
+            background: #008ecf;
+            color: #fff;
+            text-align: center;
+            padding: 1.5rem 0 1rem 0;
+            margin-top: 2rem;
+        }
+        .whatsapp-float {
+            position: fixed;
+            right: 18px;
+            bottom: 18px;
+            z-index: 2100;
+            background: #25D366;
+            border-radius: 50%;
+            box-shadow: 0 4px 20px #2224;
+            width: 58px;
+            height: 58px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: box-shadow 0.2s;
+        }
+        .whatsapp-float img {
+            width: 38px;
+            height: 38px;
+        }
+        .whatsapp-float:hover {
+            box-shadow: 0 8px 32px #2226;
+        }
+        @media (max-width: 900px) {
+            .gallery { flex-direction: column; align-items: center; gap:1em;}
+            .product-card { width: 95%; max-width: 320px;}
+            nav { flex-direction: column; gap: 0.5rem; }
+            header img { max-width: 96vw; }
+        }
+        @media (max-width: 600px) {
+            .section, .how-to-buy, .contacto { padding: 1rem 0.2rem; }
+            header .header-content { flex-direction: column; }
+            nav { position: static; }
+        }
+        /* Lightbox */
+        .lightbox-bg {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0; top: 0; width: 100vw; height: 100vh;
+            background: rgba(0,0,0,0.85);
+            align-items: center;
             justify-content: center;
         }
-        .galeria img {
-            width: 52px;
-            height: 52px;
-            object-fit: contain;
-            border: 2px solid #b3e0f7;
-            border-radius: 7px;
-            cursor: pointer;
+        .lightbox-bg.active {
+            display: flex;
+        }
+        .lightbox-content {
+            position: relative;
+            text-align: center;
+            max-width: 96vw;
+            max-height: 96vh;
+        }
+        .lightbox-content img {
+            max-width: 80vw;
+            max-height: 75vh;
+            border-radius: 12px;
+            box-shadow: 0 4px 32px #1117;
             background: #fff;
-            transition: border 0.2s;
         }
-        .galeria img.selected {
-            border: 2.5px solid #6ec1e4;
+        .lightbox-close,
+        .lightbox-prev,
+        .lightbox-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #fff;
+            color: #222;
+            border: none;
+            border-radius: 50%;
+            width: 38px;
+            height: 38px;
+            font-size: 1.5em;
+            cursor: pointer;
+            opacity: 0.9;
+            z-index: 2;
+            transition: background 0.15s;
         }
-        @media (max-width: 700px) {
-            .productos {
-                flex-direction: column;
-                align-items: center;
-            }
-            .producto {
-                width: 98vw;
-                margin-bottom: 1.3rem;
+        .lightbox-close {
+            top: 8px;
+            right: 8px;
+            transform: none;
+            font-size: 1.6em;
+            width: 38px;
+            height: 38px;
+        }
+        .lightbox-prev { left: -48px; }
+        .lightbox-next { right: -48px; }
+        @media (max-width: 600px) {
+            .lightbox-content img { max-width: 99vw; }
+            .lightbox-prev, .lightbox-next { left: 4px; right: 4px; top: 90%; }
+        }
+
+        /* --- Booster protagonista estilos --- */
+        .gallery.protagonista {
+            width: 100%;
+            max-width: 98vw;
+            justify-content: center;
+            gap: 3rem;
+        }
+        .product-card.protagonista {
+            width: 98vw;
+            max-width: 1150px;
+            min-height: 420px;
+            padding: 2.5rem 2.5rem;
+            font-size: 1.18em;
+        }
+        .product-card.protagonista .product-main-img {
+            max-width: 350px;
+            height: 260px;
+        }
+        .product-card.protagonista .product-thumbs {
+            gap: 0.8rem;
+        }
+        @media (max-width: 900px) {
+            .product-card.protagonista {
+                width: 99vw;
+                max-width: 99vw;
+                padding: 1rem 0.2rem;
+                font-size: 1em;
             }
         }
     </style>
+    <script>
+        // ... Tu JavaScript original ...
+        function mostrarSeccion(id) {
+            const secciones = document.querySelectorAll('.seccion-productos');
+            secciones.forEach(s => {s.style.display = 'none'; s.classList.remove('visible');});
+            const sec = document.getElementById(id);
+            if(sec) {
+                sec.style.display = 'block';
+                setTimeout(() => sec.classList.add('visible'), 60);
+            }
+            window.scrollTo({top: sec.offsetTop-20, behavior:'smooth'});
+            document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+            var navLink = Array.from(document.querySelectorAll('nav a')).find(a => a.textContent.toLowerCase().includes(sec.querySelector('h2').textContent.toLowerCase().split(' ')[0]));
+            if(navLink) navLink.classList.add('active');
+        }
+        window.onload = function() {
+            document.querySelectorAll('.seccion-productos').forEach(s => {s.style.display = 'none'; s.classList.remove('visible');});
+            setTimeout(() => {
+                document.querySelector('.section.hero').classList.add('visible');
+                document.querySelector('.how-to-buy').classList.add('visible');
+                document.querySelector('.contacto').classList.add('visible');
+            }, 300);
+        }
+        function setMainImage(cardId, imgIdx) {
+            const card = document.getElementById(cardId);
+            const mainImg = card.querySelector('.product-main-img');
+            const thumbs = card.querySelectorAll('.product-thumb');
+            mainImg.src = thumbs[imgIdx].dataset.full;
+            thumbs.forEach(t => t.classList.remove('selected'));
+            thumbs[imgIdx].classList.add('selected');
+            mainImg.dataset.imgidx = imgIdx;
+        }
+        var lightboxImages = [];
+        var lightboxIndex = 0;
+        function openLightboxFromCard(cardId) {
+            const card = document.getElementById(cardId);
+            lightboxImages = Array.from(card.querySelectorAll('.product-thumb')).map(t => t.dataset.full);
+            lightboxIndex = parseInt(card.querySelector('.product-main-img').dataset.imgidx) || 0;
+            showLightboxImg();
+            document.getElementById('lightbox-bg').classList.add('active');
+        }
+        function showLightboxImg() {
+            var img = document.getElementById('lightbox-img');
+            if(img && lightboxImages.length) {
+                img.src = lightboxImages[lightboxIndex];
+            }
+            document.querySelector('.lightbox-prev').style.display = (lightboxIndex > 0) ? 'block' : 'none';
+            document.querySelector('.lightbox-next').style.display = (lightboxIndex < lightboxImages.length - 1) ? 'block' : 'none';
+        }
+        function closeLightbox(e) {
+            if(!e || e.target === document.getElementById('lightbox-bg') || e.target.classList.contains('lightbox-close')) {
+                document.getElementById('lightbox-bg').classList.remove('active');
+            }
+        }
+        function lightboxPrev(e) {
+            e.stopPropagation();
+            if(lightboxIndex > 0) {
+                lightboxIndex--;
+                showLightboxImg();
+            }
+        }
+        function lightboxNext(e) {
+            e.stopPropagation();
+            if(lightboxIndex < lightboxImages.length - 1) {
+                lightboxIndex++;
+                showLightboxImg();
+            }
+        }
+        window.addEventListener('keydown', function(e) {
+            if(document.getElementById('lightbox-bg').classList.contains('active')) {
+                if(e.key === 'Escape') closeLightbox();
+                if(e.key === 'ArrowRight') lightboxNext(e);
+                if(e.key === 'ArrowLeft') lightboxPrev(e);
+            }
+        });
+    </script>
 </head>
 <body>
-<header>
-    <h1>Sillas de Auto - Temaikids</h1>
-    <p>Explora nuestra selección de sillas de auto para bebés y niños. Haz clic en cada producto para ver la descripción.</p>
-</header>
-<main>
-    <section class="productos">
-        <!-- Producto 1 -->
-        <div class="producto" onclick="toggleDescripcion(this)">
-            <img src="https://http2.mlstatic.com/D_NQ_NP_933620-MLA45794997855_052021-O.webp" alt="Silla de auto Infanti">
-            <div class="galeria">
-                <img src="https://http2.mlstatic.com/D_NQ_NP_933620-MLA45794997855_052021-O.webp" alt="Silla 1" onclick="cambiarImagen(event, this)">
-                <img src="https://cdn.shopify.com/s/files/1/0585/3229/1674/products/SILLADEAUTOINFANTIBLACK-3_1200x1200.jpg?v=1645727511" alt="Silla 2" onclick="cambiarImagen(event, this)">
-                <img src="https://www.babycompany.com.ar/cdn/shop/products/GRUPO0-1_INFANTI_1_900x.jpg" alt="Silla 3" onclick="cambiarImagen(event, this)">
-            </div>
-            <h2>Silla de auto Infanti</h2>
-            <div class="descripcion">
-                <strong>Grupo 0/1 (0–18kg)</strong><br>
-                Apta desde recién nacido hasta 18kg.<br>
-                3 posiciones de reclinado, cinturón de 5 puntos, funda lavable.<br>
-                <strong>Precio:</strong> $65.000
+    <header>
+        <div class="header-content">
+            <img src="img/logo-temaikids.jpg" alt="Logo de Temaikids">
+            <h1>Temaikids</h1>
+        </div>
+    </header>
+    <nav>
+        <a href="javascript:void(0)" onclick="mostrarSeccion('juguetes0a3')">Juguetes 0-3 años</a>
+        <a href="javascript:void(0)" onclick="mostrarSeccion('juguetes4a11')">Juguetes 4-11 años</a>
+        <a href="javascript:void(0)" onclick="mostrarSeccion('coches')">Coches de Bebé</a>
+        <a href="javascript:void(0)" onclick="mostrarSeccion('sillasbebe')">Sillas y artículos Bebé</a>
+        <a href="javascript:void(0)" onclick="mostrarSeccion('cunas')">Cunas y Practicunas</a>
+    </nav>
+    <div class="main-container">
+        <div class="section hero">
+            <h2>Bienvenidos a Temaikids</h2>
+            <p>En Temaikids, somos especialistas en ofrecer soluciones innovadoras y de alta calidad para el desarrollo y bienestar de los más pequeños.</p>
+        </div>
+        <!-- Juguetes 0 a 3 años -->
+        <div class="section seccion-productos" id="juguetes0a3">
+            <h2>Juguetes para niños de 0 a 3 años</h2>
+            <div class="gallery">
+                <div class="product-card" id="prod1">
+                    <img class="product-main-img" src="img/conejos.webp" data-imgidx="0" alt="Conejos" onclick="openLightboxFromCard('prod1')">
+                    <div class="product-thumbs">
+                        <img class="product-thumb selected" data-full="img/conejos.webp" src="img/conejos.webp" alt="Conejos" onclick="setMainImage('prod1',0)">
+                        <!-- Agrega más miniaturas si tienes -->
+                    </div>
+                    <span class="product-title">Conejos</span>
+                    <div>Juguete para bebés y niños pequeños</div>
+                </div>
+                <div class="product-card" id="prod2">
+                    <img class="product-main-img" src="img/juego-infantil-bay-dreamy-coneja-con-casa-y-accesorios-001.jpg" data-imgidx="0" alt="Bay Dreamy Coneja con Casa" onclick="openLightboxFromCard('prod2')">
+                    <div class="product-thumbs">
+                        <img class="product-thumb selected" data-full="img/juego-infantil-bay-dreamy-coneja-con-casa-y-accesorios-001.jpg" src="img/juego-infantil-bay-dreamy-coneja-con-casa-y-accesorios-001.jpg" alt="Bay Dreamy Coneja con Casa" onclick="setMainImage('prod2',0)">
+                        <!-- Más miniaturas si hay -->
+                    </div>
+                    <span class="product-title">Bay Dreamy Coneja con Casa</span>
+                    <div>Juego infantil con casa y accesorios</div>
+                </div>
             </div>
         </div>
-        <!-- Producto 2 -->
-        <div class="producto" onclick="toggleDescripcion(this)">
-            <img src="https://d3ugyf2ht6aenh.cloudfront.net/stores/001/014/457/products/silla-de-auto-bebesit-1-5bc347c6c9b2a7f0e016987758038249-640-0.jpg" alt="Silla de auto Bebesit">
-            <div class="galeria">
-                <img src="https://d3ugyf2ht6aenh.cloudfront.net/stores/001/014/457/products/silla-de-auto-bebesit-1-5bc347c6c9b2a7f0e016987758038249-640-0.jpg" alt="Bebesit 1" onclick="cambiarImagen(event, this)">
-                <img src="https://babycompany.com.ar/cdn/shop/files/Bebesit1_900x.jpg?v=1692725925" alt="Bebesit 2" onclick="cambiarImagen(event, this)">
-                <img src="https://babycompany.com.ar/cdn/shop/files/Bebesit2_900x.jpg?v=1692725925" alt="Bebesit 3" onclick="cambiarImagen(event, this)">
-            </div>
-            <h2>Silla de auto Bebesit</h2>
-            <div class="descripcion">
-                <strong>Grupo 0/1/2 (0–25kg)</strong><br>
-                Crece con tu hijo: varias posiciones de reclinado, protección lateral, tela desmontable.<br>
-                <strong>Precio:</strong> $89.900
+        <!-- Juguetes 4 a 11 años -->
+        <div class="section seccion-productos" id="juguetes4a11">
+            <h2>Juguetes para niños de 4 a 11 años</h2>
+            <div class="gallery">
+                <!-- Ejemplo vacío, agrega productos como arriba -->
             </div>
         </div>
-        <!-- Producto 3 -->
-        <div class="producto" onclick="toggleDescripcion(this)">
-            <img src="https://acdn.mitiendanube.com/stores/001/218/402/products/silla-de-auto-peg-perego-primo-viaggio-sl-1-7ee8d6f0a7411ad5e016433050731136-640-0.jpg" alt="Silla de auto Peg Perego">
-            <div class="galeria">
-                <img src="https://acdn.mitiendanube.com/stores/001/218/402/products/silla-de-auto-peg-perego-primo-viaggio-sl-1-7ee8d6f0a7411ad5e016433050731136-640-0.jpg" alt="Peg Perego 1" onclick="cambiarImagen(event, this)">
-                <img src="https://www.pegperego.com.ar/wp-content/uploads/2021/03/primo-viaggio-sl-4.jpg" alt="Peg Perego 2" onclick="cambiarImagen(event, this)">
-                <img src="https://www.pegperego.com.ar/wp-content/uploads/2021/03/primo-viaggio-sl-2.jpg" alt="Peg Perego 3" onclick="cambiarImagen(event, this)">
-            </div>
-            <h2>Silla de auto Peg Perego Primo Viaggio</h2>
-            <div class="descripcion">
-                <strong>Grupo 0+ (0–13kg)</strong><br>
-                Súper segura, protección contra impactos laterales, muy acolchada, base opcional.<br>
-                <strong>Precio:</strong> $175.000
+        <!-- Coches de Bebé -->
+        <div class="section seccion-productos" id="coches">
+            <h2>Coches de Bebé</h2>
+            <div class="gallery">
+                <div class="product-card" id="prod3">
+                    <img class="product-main-img" src="img/coche-travel-system-i-size-vox-bebesit-beige-coche-travel-system-i-size-vox-bebesit-beige.webp" data-imgidx="0" alt="Coche Travel System i-Size Vox Bebesit Beige" onclick="openLightboxFromCard('prod3')">
+                    <div class="product-thumbs">
+                        <img class="product-thumb selected" data-full="img/coche-travel-system-i-size-vox-bebesit-beige-coche-travel-system-i-size-vox-bebesit-beige.webp" src="img/coche-travel-system-i-size-vox-bebesit-beige-coche-travel-system-i-size-vox-bebesit-beige.webp" alt="Coche Travel System i-Size Vox Bebesit Beige" onclick="setMainImage('prod3',0)">
+                        <img class="product-thumb" data-full="img/coche-travel-system-i-size-vox-bebesit-beige-coche-travel-system-i-size-vox-bebesit-beige (1).webp" src="img/coche-travel-system-i-size-vox-bebesit-beige-coche-travel-system-i-size-vox-bebesit-beige (1).webp" alt="Coche Travel System i-Size Vox Bebesit Beige" onclick="setMainImage('prod3',1)">
+                        <img class="product-thumb" data-full="img/coche-travel-system-i-size-vox-bebesit-beige-coche-travel-system-i-size-vox-bebesit-beige (2).webp" src="img/coche-travel-system-i-size-vox-bebesit-beige-coche-travel-system-i-size-vox-bebesit-beige (2).webp" alt="Coche Travel System i-Size Vox Bebesit Beige" onclick="setMainImage('prod3',2)">
+                        <img class="product-thumb" data-full="img/coche-travel-system-i-size-vox-bebesit-beige-coche-travel-system-i-size-vox-bebesit-beige (3).webp" src="img/coche-travel-system-i-size-vox-bebesit-beige-coche-travel-system-i-size-vox-bebesit-beige (3).webp" alt="Coche Travel System i-Size Vox Bebesit Beige" onclick="setMainImage('prod3',3)">
+                        <img class="product-thumb" data-full="img/coche-travel-system-i-size-vox-bebesit-beige-coche-travel-system-i-size-vox-bebesit-beige (4).webp" src="img/coche-travel-system-i-size-vox-bebesit-beige-coche-travel-system-i-size-vox-bebesit-beige (4).webp" alt="Coche Travel System i-Size Vox Bebesit Beige" onclick="setMainImage('prod3',4)">
+                    </div>
+                    <span class="product-title">Coche Travel System i-Size Vox Bebesit Beige</span>
+                    <div>
+                        El Coche Travel System i-Size Vox Bebesit en color beige es la solución perfecta para pasear a tu bebé con comodidad, seguridad y estilo. Incluye portabebé homologado i-Size...
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
-</main>
-<script>
-    // Mostrar/ocultar descripción
-    function toggleDescripcion(element) {
-        // Oculta todas las descripciones menos la actual
-        document.querySelectorAll('.producto .descripcion').forEach(function(desc) {
-            if (desc !== element.querySelector('.descripcion')) {
-                desc.style.display = 'none';
-            }
-        });
-        // Alterna la visibilidad de la descripción seleccionada
-        const descripcion = element.querySelector('.descripcion');
-        descripcion.style.display = (descripcion.style.display === 'block') ? 'none' : 'block';
-    }
-
-    // Galería de imágenes
-    function cambiarImagen(event, thumb) {
-        event.stopPropagation(); // Para no disparar toggleDescripcion
-        const producto = thumb.closest('.producto');
-        const mainImg = producto.querySelector('img:not(.galeria img)');
-        mainImg.src = thumb.src;
-
-        // Cambia el borde de la miniatura seleccionada
-        producto.querySelectorAll('.galeria img').forEach(function(img) {
-            img.classList.remove('selected');
-        });
-        thumb.classList.add('selected');
-    }
-
-    // Selecciona por defecto la primera miniatura en cada producto
-    document.addEventListener("DOMContentLoaded", function() {
-        document.querySelectorAll('.producto').forEach(function(prod) {
-            const firstThumb = prod.querySelector('.galeria img');
-            if(firstThumb){
-                firstThumb.classList.add('selected');
-            }
-        });
-    });
-</script>
+        <!-- Sillas y artículos para bebé -->
+        <div class="section seccion-productos" id="sillasbebe">
+            <h2>Sillas y artículos para bebé</h2>
+            <div class="gallery protagonista">
+                <div class="product-card protagonista" id="prod4">
+                    <img class="product-main-img" src="img/bebesit-booster-convertible-suzuka-9-a-36-kg-bebesit-booster-convertible-suzuka-9-a-36-kg.webp" data-imgidx="0" alt="Bebesit Booster Convertible Suzuka" onclick="openLightboxFromCard('prod4')">
+                    <div class="product-thumbs">
+                        <img class="product-thumb selected" data-full="img/bebesit-booster-convertible-suzuka-9-a-36-kg-bebesit-booster-convertible-suzuka-9-a-36-kg.webp" src="img/bebesit-booster-convertible-suzuka-9-a-36-kg-bebesit-booster-convertible-suzuka-9-a-36-kg.webp" alt="Bebesit Booster Convertible Suzuka" onclick="setMainImage('prod4',0)">
+                        <img class="product-thumb" data-full="img/bebesit-booster-convertible-suzuka-9-a-36-kg-bebesit-booster-convertible-suzuka-9-a-36-kg (1).webp" src="img/bebesit-booster-convertible-suzuka-9-a-36-kg-bebesit-booster-convertible-suzuka-9-a-36-kg (1).webp" alt="Bebesit Booster Convertible Suzuka" onclick="setMainImage('prod4',1)">
+                        <img class="product-thumb" data-full="img/bebesit-booster-convertible-suzuka-9-a-36-kg-bebesit-booster-convertible-suzuka-9-a-36-kg (2).webp" src="img/bebesit-booster-convertible-suzuka-9-a-36-kg-bebesit-booster-convertible-suzuka-9-a-36-kg (2).webp" alt="Bebesit Booster Convertible Suzuka" onclick="setMainImage('prod4',2)">
+                        <img class="product-thumb" data-full="img/bebesit-booster-convertible-suzuka-9-a-36-kg-bebesit-booster-convertible-suzuka-9-a-36-kg (3).webp" src="img/bebesit-booster-convertible-suzuka-9-a-36-kg-bebesit-booster-convertible-suzuka-9-a-36-kg (3).webp" alt="Bebesit Booster Convertible Suzuka" onclick="setMainImage('prod4',3)">
+                        <img class="product-thumb" data-full="img/bebesit-booster-convertible-suzuka-9-a-36-kg-rojo-bebesit-booster-convertible-suzuka-9-a-36-kg-rojo (4).webp" src="img/bebesit-booster-convertible-suzuka-9-a-36-kg-rojo-bebesit-booster-convertible-suzuka-9-a-36-kg-rojo (4).webp" alt="Bebesit Booster Convertible Suzuka" onclick="setMainImage('prod4',4)">
+                    </div>
+                    <span class="product-title">Bebesit Booster Convertible Suzuka</span>
+                    <div style="text-align:left;font-size:0.98em;">
+                        <strong>Booster Suzuka de Bebesit: Seguridad y Comodidad para el Crecimiento de tu Hijo</strong><br>
+                        El Booster Suzuka de Bebesit está diseñado para acompañar a tu hijo desde sus primeros viajes hasta que se convierta en un niño grande. Con un rango de peso de 9 a 36 kg, está adaptado a cada etapa del crecimiento...
+                        <!-- ... resto de la descripción igual ... -->
+                    </div>
+                </div>
+                <!-- Silla de Auto Voyage -->
+                <div class="product-card protagonista" id="prod-voyage">
+                    <img class="product-main-img" src="img/silla-de-auto-voyage-0-a-36-kg-bebesit-silla-de-auto-voyage-0-a-36-kg-bebesit.webp" data-imgidx="0" alt="Silla de Auto Voyage" onclick="openLightboxFromCard('prod-voyage')">
+                    <div class="product-thumbs">
+                        <img class="product-thumb selected" data-full="img/silla-de-auto-voyage-0-a-36-kg-bebesit-silla-de-auto-voyage-0-a-36-kg-bebesit.webp" src="img/silla-de-auto-voyage-0-a-36-kg-bebesit-silla-de-auto-voyage-0-a-36-kg-bebesit.webp" alt="Silla de Auto Voyage" onclick="setMainImage('prod-voyage',0)">
+                        <img class="product-thumb" data-full="img/silla-de-auto-voyage-0-a-36-kg-bebesit-silla-de-auto-voyage-0-a-36-kg-bebesit (1).webp" src="img/silla-de-auto-voyage-0-a-36-kg-bebesit-silla-de-auto-voyage-0-a-36-kg-bebesit (1).webp" alt="Silla de Auto Voyage" onclick="setMainImage('prod-voyage',1)">
+                        <img class="product-thumb" data-full="img/silla-de-auto-voyage-0-a-36-kg-bebesit-silla-de-auto-voyage-0-a-36-kg-bebesit (2).webp" src="img/silla-de-auto-voyage-0-a-36-kg-bebesit-silla-de-auto-voyage-0-a-36-kg-bebesit (2).webp" alt="Silla de Auto Voyage" onclick="setMainImage('prod-voyage',2)">
+                        <img class="product-thumb" data-full="img/silla-de-auto-voyage-0-a-36-kg-bebesit-silla-de-auto-voyage-0-a-36-kg-bebesit (3).webp" src="img/silla-de-auto-voyage-0-a-36-kg-bebesit-silla-de-auto-voyage-0-a-36-kg-bebesit (3).webp" alt="Silla de Auto Voyage" onclick="setMainImage('prod-voyage',3)">
+                        <img class="product-thumb" data-full="img/silla-de-auto-voyage-0-a-36-kg-bebesit-silla-de-auto-voyage-0-a-36-kg-bebesit (4).webp" src="img/silla-de-auto-voyage-0-a-36-kg-bebesit-silla-de-auto-voyage-0-a-36-kg-bebesit (4).webp" alt="Silla de Auto Voyage" onclick="setMainImage('prod-voyage',4)">
+                    </div>
+                    <span class="product-title">Silla de Auto Voyage</span>
+                    <div style="text-align:left;font-size:0.98em;">
+                        <strong>Butaca para Auto Voyage – Seguridad y Comodidad desde el Nacimiento hasta los 12 Años</strong><br>
+                        La butaca para auto Voyage está diseñada para ofrecer protección y confort desde recién nacidos hasta niños de 36 kg, acompañando cada etapa del crecimiento. Es un modelo versátil que abarca los grupos 0+, 1, 2 y 3, cumpliendo con las normas internacionales ECE R44/04 de seguridad.
+                        <br><br>
+                        <strong>Modos de uso:</strong><br>
+                        - <b>Grupo 0+/1 (0 a 18 kg):</b> Uso a contramarcha, recomendado para mayor seguridad en bebés. Incluye reductores internos removibles para mayor comodidad.<br>
+                        - <b>Grupo 1 (9 a 18 kg):</b> Mirando al frente con arnés. <i>Importante:</i> No utilizar en posición hacia adelante si el niño pesa menos de 9 kg.<br>
+                        - <b>Grupo 2/3 (15 a 36 kg):</b> Mirando hacia el frente sin arnés, usando el cinturón de seguridad del vehículo.<br>
+                        <br>
+                        Instalación con cinturón de seguridad de 3 puntas del auto.<br>
+                        Uso a contramarcha de 0 a 18 kg, con 1 posición reclinada específica.<br>
+                        4 posiciones de reclinado (3 hacia el frente + 1 a contramarcha).<br>
+                        Apoyacabeza ajustable en altura, se adapta al crecimiento del niño.<br>
+                        La altura del arnés se ajusta automáticamente con la altura el apoyacabeza.<br>
+                        Reductores internos removibles para mayor soporte en los primeros meses.<br>
+                        Arnés de seguridad de 5 puntos, que ofrece un ajuste firme y seguro.<br>
+                        <b>Dimensiones:</b> 67 cm (alto) x 47 cm (ancho) x 40 cm (profundidad).<br>
+                        <br>
+                        <strong>Tecnología Side Impact Tested:</strong> Proporciona protección adicional ante impactos laterales.<br>
+                        <br>
+                        <strong>Seguridad Certificada:</strong><br>
+                        Cumple con la normativa europea ECE R44/04, garantizando un estándar internacional de protección infantil.<br>
+                        <br>
+                        La butaca Voyage es una excelente elección para familias que buscan una solución completa, segura y duradera desde el nacimiento hasta los 12 años. Con su estructura reforzada, tecnología de impacto lateral y facilidad de uso, es la compañera ideal para cada etapa del crecimiento de tu hijo.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Cunas y Practicunas -->
+        <div class="section seccion-productos" id="cunas">
+            <h2>Cunas y Practicunas</h2>
+            <div class="gallery">
+                <div class="product-card" id="prod5">
+                    <img class="product-main-img" src="img/practicuna.jpg" data-imgidx="0" alt="Practicuna" onclick="openLightboxFromCard('prod5')">
+                    <div class="product-thumbs">
+                        <img class="product-thumb selected" data-full="img/practicuna.jpg" src="img/practicuna.jpg" alt="" onclick="setMainImage('prod5',0)">
+                        <img class="product-thumb" data-full="img/practicuna 1.jpg" src="img/practicuna 1.jpg" alt="" onclick="setMainImage('prod5',1)">
+                        <img class="product-thumb" data-full="img/practicuna 2.jpg" src="img/practicuna 2.jpg" alt="" onclick="setMainImage('prod5',2)">
+                        <img class="product-thumb" data-full="img/cuna 1.jpg" src="img/cuna 1.jpg" alt="" onclick="setMainImage('prod5',3)">
+                    </div>
+                    <span class="product-title">Practicuna</span>
+                    <div>Practicuna multifunción</div>
+                </div>
+                <div class="product-card" id="prod6">
+                    <img class="product-main-img" src="img/colecho.webp" data-imgidx="0" alt="Colecho" onclick="openLightboxFromCard('prod6')">
+                    <div class="product-thumbs">
+                        <img class="product-thumb selected" data-full="img/colecho.webp" src="img/colecho.webp" alt="" onclick="setMainImage('prod6',0)">
+                        <img class="product-thumb" data-full="img/colecho 2.webp" src="img/colecho 2.webp" alt="" onclick="setMainImage('prod6',1)">
+                    </div>
+                    <span class="product-title">Colecho</span>
+                    <div>Cama colecho para bebés</div>
+                </div>
+                <div class="product-card" id="prod7">
+                    <img class="product-main-img" src="img/cuna-colecho-easy-sleep-bebesit-gris-cuna-colecho-easy-sleep-bebesit-gris.webp" data-imgidx="0" alt="Cuna Colecho Easy Sleep Bebesit Gris" onclick="openLightboxFromCard('prod7')">
+                    <div class="product-thumbs">
+                        <img class="product-thumb selected" data-full="img/cuna-colecho-easy-sleep-bebesit-gris-cuna-colecho-easy-sleep-bebesit-gris.webp" src="img/cuna-colecho-easy-sleep-bebesit-gris-cuna-colecho-easy-sleep-bebesit-gris.webp" alt="" onclick="setMainImage('prod7',0)">
+                        <img class="product-thumb" data-full="img/cuna-colecho-easy-sleep-bebesit-gris-cuna-colecho-easy-sleep-bebesit-gris (1).webp" src="img/cuna-colecho-easy-sleep-bebesit-gris-cuna-colecho-easy-sleep-bebesit-gris (1).webp" alt="" onclick="setMainImage('prod7',1)">
+                        <img class="product-thumb" data-full="img/cuna-colecho-easy-sleep-bebesit-gris-cuna-colecho-easy-sleep-bebesit-gris (2).webp" src="img/cuna-colecho-easy-sleep-bebesit-gris-cuna-colecho-easy-sleep-bebesit-gris (2).webp" alt="" onclick="setMainImage('prod7',2)">
+                    </div>
+                    <span class="product-title">Cuna Colecho Easy Sleep Bebesit Gris</span>
+                    <div>Cuna colecho modelo Easy Sleep, color gris</div>
+                </div>
+            </div>
+        </div>
+        <div class="how-to-buy">
+            <h2>¿Cómo Comprar?</h2>
+            <ol>
+                <li>Explora nuestro catálogo y elige tus productos favoritos.</li>
+                <li>Contáctanos por WhatsApp: <a href="https://wa.me/59893588352" target="_blank">+598 9358 8352</a>.</li>
+                <li>Realiza el pago por Mercado Pago a través de nuestro QR o enlace.</li>
+            </ol>
+        </div>
+        <div class="contacto">
+            <h2>Contacto</h2>
+            <p>
+                <img src="img/whatsapp.jpeg" alt="WhatsApp" style="width:28px;height:28px;vertical-align:middle;">
+                <a href="https://wa.me/59893588352" target="_blank">+598 9358 8352</a>
+            </p>
+            <p>Síguenos en: 
+                <a href="https://www.instagram.com/temaikids/?hl=es-la" target="_blank">Instagram</a> | 
+                <a href="https://www.facebook.com/p/Temaikids-100057246288639/" target="_blank">Facebook</a>
+            </p>
+        </div>
+    </div>
+    <footer>
+        <div class="social-icons">
+            <a href="https://wa.me/59893588352" target="_blank" title="WhatsApp">
+                <img src="img/whatsapp.jpeg" alt="WhatsApp">
+            </a>
+        </div>
+        © 2024 Temaikids. Todos los derechos reservados.
+    </footer>
+    <!-- Botón WhatsApp flotante -->
+    <a href="https://wa.me/59893588352" class="whatsapp-float" title="Contáctanos por WhatsApp" target="_blank">
+        <img src="img/whatsapp.jpeg" alt="WhatsApp">
+    </a>
+    <!-- Lightbox -->
+    <div class="lightbox-bg" id="lightbox-bg" onclick="closeLightbox(event)">
+        <div class="lightbox-content" id="lightbox-content">
+            <button class="lightbox-close" onclick="closeLightbox(event)">&times;</button>
+            <button class="lightbox-prev" onclick="lightboxPrev(event)">&lt;</button>
+            <img id="lightbox-img" src="" alt="Imagen ampliada">
+            <button class="lightbox-next" onclick="lightboxNext(event)">&gt;</button>
+        </div>
+    </div>
 </body>
 </html>
