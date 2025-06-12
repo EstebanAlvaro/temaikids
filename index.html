@@ -386,24 +386,22 @@
         <div class="section seccion-productos" id="juguetes0a3">
             <h2>Juguetes para niños de 0 a 3 años</h2>
             <div class="gallery">
-                <div class="product-card" id="prod1">
-                    <img class="product-main-img" src="img/conejos.webp" data-imgidx="0" alt="Conejos" onclick="openLightboxFromCard('prod1')">
-                    <div class="product-thumbs">
-                        <img class="product-thumb selected" data-full="img/conejos.webp" src="img/conejos.webp" alt="Conejos" onclick="setMainImage('prod1',0)">
-                        <!-- Agrega más miniaturas si tienes -->
-                    </div>
-                    <span class="product-title">Conejos</span>
-                    <div>Juguete para bebés y niños pequeños</div>
-                </div>
-                <div class="product-card" id="prod2">
-                    <img class="product-main-img" src="img/juego-infantil-bay-dreamy-coneja-con-casa-y-accesorios-001.jpg" data-imgidx="0" alt="Bay Dreamy Coneja con Casa" onclick="openLightboxFromCard('prod2')">
-                    <div class="product-thumbs">
-                        <img class="product-thumb selected" data-full="img/juego-infantil-bay-dreamy-coneja-con-casa-y-accesorios-001.jpg" src="img/juego-infantil-bay-dreamy-coneja-con-casa-y-accesorios-001.jpg" alt="Bay Dreamy Coneja con Casa" onclick="setMainImage('prod2',0)">
-                        <!-- Más miniaturas si hay -->
-                    </div>
-                    <span class="product-title">Bay Dreamy Coneja con Casa</span>
-                    <div>Juego infantil con casa y accesorios</div>
-                </div>
+<div class="product-card" id="prod1" onclick="toggleDescripcion(this)">
+    <img class="product-main-img" src="img/conejos.webp" data-imgidx="0" alt="Conejos" onclick="openLightboxFromCard('prod1');event.stopPropagation();">
+    <div class="product-thumbs">
+        <img class="product-thumb selected" data-full="img/conejos.webp" src="img/conejos.webp" alt="Conejos" onclick="setMainImage('prod1',0);event.stopPropagation();">
+    </div>
+    <span class="product-title">Conejos</span>
+    <div class="product-descripcion">Juguete para bebés y niños pequeños</div>
+</div>
+                <div class="product-card" id="prod2" onclick="toggleDescripcion(this)">
+    <img class="product-main-img" src="img/juego-infantil-bay-dreamy-coneja-con-casa-y-accesorios-001.jpg" data-imgidx="0" alt="Bay Dreamy Coneja con Casa" onclick="openLightboxFromCard('prod2');event.stopPropagation();">
+    <div class="product-thumbs">
+        <img class="product-thumb selected" data-full="img/juego-infantil-bay-dreamy-coneja-con-casa-y-accesorios-001.jpg" src="img/juego-infantil-bay-dreamy-coneja-con-casa-y-accesorios-001.jpg" alt="Bay Dreamy Coneja con Casa" onclick="setMainImage('prod2',0);event.stopPropagation();">
+    </div>
+    <span class="product-title">Bay Dreamy Coneja con Casa</span>
+    <div class="product-descripcion">Juego infantil con casa y accesorios</div>
+</div>
             </div>
         </div>
         <!-- Juguetes 4 a 11 años -->
@@ -417,115 +415,114 @@
         <div class="section seccion-productos" id="coches">
             <h2>Coches de Bebé</h2>
             <div class="gallery">
-                <div class="product-card" id="prod3">
-                    <img class="product-main-img" src="img/coche-travel-system-i-size-vox-bebesit-beige-coche-travel-system-i-size-vox-bebesit-beige.webp" data-imgidx="0" alt="Coche Travel System i-Size Vox Bebesit Beige" onclick="openLightboxFromCard('prod3')">
-                    <div class="product-thumbs">
-                        <img class="product-thumb selected" data-full="img/coche-travel-system-i-size-vox-bebesit-beige-coche-travel-system-i-size-vox-bebesit-beige.webp" src="img/coche-travel-system-i-size-vox-bebesit-beige-coche-travel-system-i-size-vox-bebesit-beige.webp" alt="Coche Travel System i-Size Vox Bebesit Beige" onclick="setMainImage('prod3',0)">
-                        <img class="product-thumb" data-full="img/coche-travel-system-i-size-vox-bebesit-beige-coche-travel-system-i-size-vox-bebesit-beige (1).webp" src="img/coche-travel-system-i-size-vox-bebesit-beige-coche-travel-system-i-size-vox-bebesit-beige (1).webp" alt="Coche Travel System i-Size Vox Bebesit Beige" onclick="setMainImage('prod3',1)">
-                        <img class="product-thumb" data-full="img/coche-travel-system-i-size-vox-bebesit-beige-coche-travel-system-i-size-vox-bebesit-beige (2).webp" src="img/coche-travel-system-i-size-vox-bebesit-beige-coche-travel-system-i-size-vox-bebesit-beige (2).webp" alt="Coche Travel System i-Size Vox Bebesit Beige" onclick="setMainImage('prod3',2)">
-                        <img class="product-thumb" data-full="img/coche-travel-system-i-size-vox-bebesit-beige-coche-travel-system-i-size-vox-bebesit-beige (3).webp" src="img/coche-travel-system-i-size-vox-bebesit-beige-coche-travel-system-i-size-vox-bebesit-beige (3).webp" alt="Coche Travel System i-Size Vox Bebesit Beige" onclick="setMainImage('prod3',3)">
-                        <img class="product-thumb" data-full="img/coche-travel-system-i-size-vox-bebesit-beige-coche-travel-system-i-size-vox-bebesit-beige (4).webp" src="img/coche-travel-system-i-size-vox-bebesit-beige-coche-travel-system-i-size-vox-bebesit-beige (4).webp" alt="Coche Travel System i-Size Vox Bebesit Beige" onclick="setMainImage('prod3',4)">
-                    </div>
-                    <span class="product-title">Coche Travel System i-Size Vox Bebesit Beige</span>
-                    <div>
-                        El Coche Travel System i-Size Vox Bebesit en color beige es la solución perfecta para pasear a tu bebé con comodidad, seguridad y estilo. Incluye portabebé homologado i-Size...
-                    </div>
-                </div>
+               <div class="product-card" id="prod3" onclick="toggleDescripcion(this)">
+    <img class="product-main-img" src="img/coche-travel-system-i-size-vox-bebesit-beige-coche-travel-system-i-size-vox-bebesit-beige.webp" data-imgidx="0" alt="Coche Travel System i-Size Vox Bebesit Beige" onclick="openLightboxFromCard('prod3');event.stopPropagation();">
+    <div class="product-thumbs">
+        <img class="product-thumb selected" data-full="img/coche-travel-system-i-size-vox-bebesit-beige-coche-travel-system-i-size-vox-bebesit-beige.webp" src="img/coche-travel-system-i-size-vox-bebesit-beige-coche-travel-system-i-size-vox-bebesit-beige.webp" alt="Coche Travel System i-Size Vox Bebesit Beige" onclick="setMainImage('prod3',0);event.stopPropagation();">
+        <img class="product-thumb" data-full="img/coche-travel-system-i-size-vox-bebesit-beige-coche-travel-system-i-size-vox-bebesit-beige (1).webp" src="img/coche-travel-system-i-size-vox-bebesit-beige-coche-travel-system-i-size-vox-bebesit-beige (1).webp" alt="Coche Travel System i-Size Vox Bebesit Beige" onclick="setMainImage('prod3',1);event.stopPropagation();">
+        <img class="product-thumb" data-full="img/coche-travel-system-i-size-vox-bebesit-beige-coche-travel-system-i-size-vox-bebesit-beige (2).webp" src="img/coche-travel-system-i-size-vox-bebesit-beige-coche-travel-system-i-size-vox-bebesit-beige (2).webp" alt="Coche Travel System i-Size Vox Bebesit Beige" onclick="setMainImage('prod3',2);event.stopPropagation();">
+        <img class="product-thumb" data-full="img/coche-travel-system-i-size-vox-bebesit-beige-coche-travel-system-i-size-vox-bebesit-beige (3).webp" src="img/coche-travel-system-i-size-vox-bebesit-beige-coche-travel-system-i-size-vox-bebesit-beige (3).webp" alt="Coche Travel System i-Size Vox Bebesit Beige" onclick="setMainImage('prod3',3);event.stopPropagation();">
+        <img class="product-thumb" data-full="img/coche-travel-system-i-size-vox-bebesit-beige-coche-travel-system-i-size-vox-bebesit-beige (4).webp" src="img/coche-travel-system-i-size-vox-bebesit-beige-coche-travel-system-i-size-vox-bebesit-beige (4).webp" alt="Coche Travel System i-Size Vox Bebesit Beige" onclick="setMainImage('prod3',4);event.stopPropagation();">
+    </div>
+    <span class="product-title">Coche Travel System i-Size Vox Bebesit Beige</span>
+    <div class="product-descripcion">
+        El Coche Travel System i-Size Vox Bebesit en color beige es la solución perfecta para pasear a tu bebé con comodidad, seguridad y estilo. Incluye portabebé homologado i-Size...
+    </div>
+</div>
             </div>
         </div>
         <!-- Sillas y artículos para bebé -->
         <div class="section seccion-productos" id="sillasbebe">
             <h2>Sillas y artículos para bebé</h2>
             <div class="gallery protagonista">
-                <div class="product-card protagonista" id="prod4">
-                    <img class="product-main-img" src="img/bebesit-booster-convertible-suzuka-9-a-36-kg-bebesit-booster-convertible-suzuka-9-a-36-kg.webp" data-imgidx="0" alt="Bebesit Booster Convertible Suzuka" onclick="openLightboxFromCard('prod4')">
-                    <div class="product-thumbs">
-                        <img class="product-thumb selected" data-full="img/bebesit-booster-convertible-suzuka-9-a-36-kg-bebesit-booster-convertible-suzuka-9-a-36-kg.webp" src="img/bebesit-booster-convertible-suzuka-9-a-36-kg-bebesit-booster-convertible-suzuka-9-a-36-kg.webp" alt="Bebesit Booster Convertible Suzuka" onclick="setMainImage('prod4',0)">
-                        <img class="product-thumb" data-full="img/bebesit-booster-convertible-suzuka-9-a-36-kg-bebesit-booster-convertible-suzuka-9-a-36-kg (1).webp" src="img/bebesit-booster-convertible-suzuka-9-a-36-kg-bebesit-booster-convertible-suzuka-9-a-36-kg (1).webp" alt="Bebesit Booster Convertible Suzuka" onclick="setMainImage('prod4',1)">
-                        <img class="product-thumb" data-full="img/bebesit-booster-convertible-suzuka-9-a-36-kg-bebesit-booster-convertible-suzuka-9-a-36-kg (2).webp" src="img/bebesit-booster-convertible-suzuka-9-a-36-kg-bebesit-booster-convertible-suzuka-9-a-36-kg (2).webp" alt="Bebesit Booster Convertible Suzuka" onclick="setMainImage('prod4',2)">
-                        <img class="product-thumb" data-full="img/bebesit-booster-convertible-suzuka-9-a-36-kg-bebesit-booster-convertible-suzuka-9-a-36-kg (3).webp" src="img/bebesit-booster-convertible-suzuka-9-a-36-kg-bebesit-booster-convertible-suzuka-9-a-36-kg (3).webp" alt="Bebesit Booster Convertible Suzuka" onclick="setMainImage('prod4',3)">
-                        <img class="product-thumb" data-full="img/bebesit-booster-convertible-suzuka-9-a-36-kg-rojo-bebesit-booster-convertible-suzuka-9-a-36-kg-rojo (4).webp" src="img/bebesit-booster-convertible-suzuka-9-a-36-kg-rojo-bebesit-booster-convertible-suzuka-9-a-36-kg-rojo (4).webp" alt="Bebesit Booster Convertible Suzuka" onclick="setMainImage('prod4',4)">
-                    </div>
-                    <span class="product-title">Bebesit Booster Convertible Suzuka</span>
-                    <div style="text-align:left;font-size:0.98em;">
-                        <strong>Booster Suzuka de Bebesit: Seguridad y Comodidad para el Crecimiento de tu Hijo</strong><br>
-                        El Booster Suzuka de Bebesit está diseñado para acompañar a tu hijo desde sus primeros viajes hasta que se convierta en un niño grande. Con un rango de peso de 9 a 36 kg, está adaptado a cada etapa del crecimiento...
-                        <!-- ... resto de la descripción igual ... -->
-                    </div>
-                </div>
+                <div class="product-card protagonista" id="prod4" onclick="toggleDescripcion(this)">
+    <img class="product-main-img" src="img/bebesit-booster-convertible-suzuka-9-a-36-kg-bebesit-booster-convertible-suzuka-9-a-36-kg.webp" data-imgidx="0" alt="Bebesit Booster Convertible Suzuka" onclick="openLightboxFromCard('prod4');event.stopPropagation();">
+    <div class="product-thumbs">
+        <img class="product-thumb selected" data-full="img/bebesit-booster-convertible-suzuka-9-a-36-kg-bebesit-booster-convertible-suzuka-9-a-36-kg.webp" src="img/bebesit-booster-convertible-suzuka-9-a-36-kg-bebesit-booster-convertible-suzuka-9-a-36-kg.webp" alt="Bebesit Booster Convertible Suzuka" onclick="setMainImage('prod4',0);event.stopPropagation();">
+        <img class="product-thumb" data-full="img/bebesit-booster-convertible-suzuka-9-a-36-kg-bebesit-booster-convertible-suzuka-9-a-36-kg (1).webp" src="img/bebesit-booster-convertible-suzuka-9-a-36-kg-bebesit-booster-convertible-suzuka-9-a-36-kg (1).webp" alt="Bebesit Booster Convertible Suzuka" onclick="setMainImage('prod4',1);event.stopPropagation();">
+        <img class="product-thumb" data-full="img/bebesit-booster-convertible-suzuka-9-a-36-kg-bebesit-booster-convertible-suzuka-9-a-36-kg (2).webp" src="img/bebesit-booster-convertible-suzuka-9-a-36-kg-bebesit-booster-convertible-suzuka-9-a-36-kg (2).webp" alt="Bebesit Booster Convertible Suzuka" onclick="setMainImage('prod4',2);event.stopPropagation();">
+        <img class="product-thumb" data-full="img/bebesit-booster-convertible-suzuka-9-a-36-kg-bebesit-booster-convertible-suzuka-9-a-36-kg (3).webp" src="img/bebesit-booster-convertible-suzuka-9-a-36-kg-bebesit-booster-convertible-suzuka-9-a-36-kg (3).webp" alt="Bebesit Booster Convertible Suzuka" onclick="setMainImage('prod4',3);event.stopPropagation();">
+        <img class="product-thumb" data-full="img/bebesit-booster-convertible-suzuka-9-a-36-kg-rojo-bebesit-booster-convertible-suzuka-9-a-36-kg-rojo (4).webp" src="img/bebesit-booster-convertible-suzuka-9-a-36-kg-rojo-bebesit-booster-convertible-suzuka-9-a-36-kg-rojo (4).webp" alt="Bebesit Booster Convertible Suzuka" onclick="setMainImage('prod4',4);event.stopPropagation();">
+    </div>
+    <span class="product-title">Bebesit Booster Convertible Suzuka</span>
+    <div class="product-descripcion" style="text-align:left;font-size:0.98em;">
+        <strong>Booster Suzuka de Bebesit: Seguridad y Comodidad para el Crecimiento de tu Hijo</strong><br>
+        El Booster Suzuka de Bebesit está diseñado para acompañar a tu hijo desde sus primeros viajes hasta que se convierta en un niño grande. Con un rango de peso de 9 a 36 kg, está adaptado a cada etapa del crecimiento...
+    </div>
+</div>
                 <!-- Silla de Auto Voyage -->
-                <div class="product-card protagonista" id="prod-voyage">
-                    <img class="product-main-img" src="img/silla-de-auto-voyage-0-a-36-kg-bebesit-silla-de-auto-voyage-0-a-36-kg-bebesit.webp" data-imgidx="0" alt="Silla de Auto Voyage" onclick="openLightboxFromCard('prod-voyage')">
-                    <div class="product-thumbs">
-                        <img class="product-thumb selected" data-full="img/silla-de-auto-voyage-0-a-36-kg-bebesit-silla-de-auto-voyage-0-a-36-kg-bebesit.webp" src="img/silla-de-auto-voyage-0-a-36-kg-bebesit-silla-de-auto-voyage-0-a-36-kg-bebesit.webp" alt="Silla de Auto Voyage" onclick="setMainImage('prod-voyage',0)">
-                        <img class="product-thumb" data-full="img/silla-de-auto-voyage-0-a-36-kg-bebesit-silla-de-auto-voyage-0-a-36-kg-bebesit (1).webp" src="img/silla-de-auto-voyage-0-a-36-kg-bebesit-silla-de-auto-voyage-0-a-36-kg-bebesit (1).webp" alt="Silla de Auto Voyage" onclick="setMainImage('prod-voyage',1)">
-                        <img class="product-thumb" data-full="img/silla-de-auto-voyage-0-a-36-kg-bebesit-silla-de-auto-voyage-0-a-36-kg-bebesit (2).webp" src="img/silla-de-auto-voyage-0-a-36-kg-bebesit-silla-de-auto-voyage-0-a-36-kg-bebesit (2).webp" alt="Silla de Auto Voyage" onclick="setMainImage('prod-voyage',2)">
-                        <img class="product-thumb" data-full="img/silla-de-auto-voyage-0-a-36-kg-bebesit-silla-de-auto-voyage-0-a-36-kg-bebesit (3).webp" src="img/silla-de-auto-voyage-0-a-36-kg-bebesit-silla-de-auto-voyage-0-a-36-kg-bebesit (3).webp" alt="Silla de Auto Voyage" onclick="setMainImage('prod-voyage',3)">
-                        <img class="product-thumb" data-full="img/silla-de-auto-voyage-0-a-36-kg-bebesit-silla-de-auto-voyage-0-a-36-kg-bebesit (4).webp" src="img/silla-de-auto-voyage-0-a-36-kg-bebesit-silla-de-auto-voyage-0-a-36-kg-bebesit (4).webp" alt="Silla de Auto Voyage" onclick="setMainImage('prod-voyage',4)">
-                    </div>
-                    <span class="product-title">Silla de Auto Voyage</span>
-                    <div style="text-align:left;font-size:0.98em;">
-                        <strong>Butaca para Auto Voyage – Seguridad y Comodidad desde el Nacimiento hasta los 12 Años</strong><br>
-                        La butaca para auto Voyage está diseñada para ofrecer protección y confort desde recién nacidos hasta niños de 36 kg, acompañando cada etapa del crecimiento. Es un modelo versátil que abarca los grupos 0+, 1, 2 y 3, cumpliendo con las normas internacionales ECE R44/04 de seguridad.
-                        <br><br>
-                        <strong>Modos de uso:</strong><br>
-                        - <b>Grupo 0+/1 (0 a 18 kg):</b> Uso a contramarcha, recomendado para mayor seguridad en bebés. Incluye reductores internos removibles para mayor comodidad.<br>
-                        - <b>Grupo 1 (9 a 18 kg):</b> Mirando al frente con arnés. <i>Importante:</i> No utilizar en posición hacia adelante si el niño pesa menos de 9 kg.<br>
-                        - <b>Grupo 2/3 (15 a 36 kg):</b> Mirando hacia el frente sin arnés, usando el cinturón de seguridad del vehículo.<br>
-                        <br>
-                        Instalación con cinturón de seguridad de 3 puntas del auto.<br>
-                        Uso a contramarcha de 0 a 18 kg, con 1 posición reclinada específica.<br>
-                        4 posiciones de reclinado (3 hacia el frente + 1 a contramarcha).<br>
-                        Apoyacabeza ajustable en altura, se adapta al crecimiento del niño.<br>
-                        La altura del arnés se ajusta automáticamente con la altura el apoyacabeza.<br>
-                        Reductores internos removibles para mayor soporte en los primeros meses.<br>
-                        Arnés de seguridad de 5 puntos, que ofrece un ajuste firme y seguro.<br>
-                        <b>Dimensiones:</b> 67 cm (alto) x 47 cm (ancho) x 40 cm (profundidad).<br>
-                        <br>
-                        <strong>Tecnología Side Impact Tested:</strong> Proporciona protección adicional ante impactos laterales.<br>
-                        <br>
-                        <strong>Seguridad Certificada:</strong><br>
-                        Cumple con la normativa europea ECE R44/04, garantizando un estándar internacional de protección infantil.<br>
-                        <br>
-                        La butaca Voyage es una excelente elección para familias que buscan una solución completa, segura y duradera desde el nacimiento hasta los 12 años. Con su estructura reforzada, tecnología de impacto lateral y facilidad de uso, es la compañera ideal para cada etapa del crecimiento de tu hijo.
-                    </div>
-                </div>
+                <div class="product-card protagonista" id="prod-voyage" onclick="toggleDescripcion(this)">
+    <img class="product-main-img" src="img/silla-de-auto-voyage-0-a-36-kg-bebesit-silla-de-auto-voyage-0-a-36-kg-bebesit.webp" data-imgidx="0" alt="Silla de Auto Voyage" onclick="openLightboxFromCard('prod-voyage');event.stopPropagation();">
+    <div class="product-thumbs">
+        <img class="product-thumb selected" data-full="img/silla-de-auto-voyage-0-a-36-kg-bebesit-silla-de-auto-voyage-0-a-36-kg-bebesit.webp" src="img/silla-de-auto-voyage-0-a-36-kg-bebesit-silla-de-auto-voyage-0-a-36-kg-bebesit.webp" alt="Silla de Auto Voyage" onclick="setMainImage('prod-voyage',0);event.stopPropagation();">
+        <img class="product-thumb" data-full="img/silla-de-auto-voyage-0-a-36-kg-bebesit-silla-de-auto-voyage-0-a-36-kg-bebesit (1).webp" src="img/silla-de-auto-voyage-0-a-36-kg-bebesit-silla-de-auto-voyage-0-a-36-kg-bebesit (1).webp" alt="Silla de Auto Voyage" onclick="setMainImage('prod-voyage',1);event.stopPropagation();">
+        <img class="product-thumb" data-full="img/silla-de-auto-voyage-0-a-36-kg-bebesit-silla-de-auto-voyage-0-a-36-kg-bebesit (2).webp" src="img/silla-de-auto-voyage-0-a-36-kg-bebesit-silla-de-auto-voyage-0-a-36-kg-bebesit (2).webp" alt="Silla de Auto Voyage" onclick="setMainImage('prod-voyage',2);event.stopPropagation();">
+        <img class="product-thumb" data-full="img/silla-de-auto-voyage-0-a-36-kg-bebesit-silla-de-auto-voyage-0-a-36-kg-bebesit (3).webp" src="img/silla-de-auto-voyage-0-a-36-kg-bebesit-silla-de-auto-voyage-0-a-36-kg-bebesit (3).webp" alt="Silla de Auto Voyage" onclick="setMainImage('prod-voyage',3);event.stopPropagation();">
+        <img class="product-thumb" data-full="img/silla-de-auto-voyage-0-a-36-kg-bebesit-silla-de-auto-voyage-0-a-36-kg-bebesit (4).webp" src="img/silla-de-auto-voyage-0-a-36-kg-bebesit-silla-de-auto-voyage-0-a-36-kg-bebesit (4).webp" alt="Silla de Auto Voyage" onclick="setMainImage('prod-voyage',4);event.stopPropagation();">
+    </div>
+    <span class="product-title">Silla de Auto Voyage</span>
+    <div class="product-descripcion" style="text-align:left;font-size:0.98em;">
+        <strong>Butaca para Auto Voyage – Seguridad y Comodidad desde el Nacimiento hasta los 12 Años</strong><br>
+        La butaca para auto Voyage está diseñada para ofrecer protección y confort desde recién nacidos hasta niños de 36 kg, acompañando cada etapa del crecimiento. Es un modelo versátil que abarca los grupos 0+, 1, 2 y 3, cumpliendo con las normas internacionales ECE R44/04 de seguridad.
+        <br><br>
+        <strong>Modos de uso:</strong><br>
+        - <b>Grupo 0+/1 (0 a 18 kg):</b> Uso a contramarcha, recomendado para mayor seguridad en bebés. Incluye reductores internos removibles para mayor comodidad.<br>
+        - <b>Grupo 1 (9 a 18 kg):</b> Mirando al frente con arnés. <i>Importante:</i> No utilizar en posición hacia adelante si el niño pesa menos de 9 kg.<br>
+        - <b>Grupo 2/3 (15 a 36 kg):</b> Mirando hacia el frente sin arnés, usando el cinturón de seguridad del vehículo.<br>
+        <br>
+        Instalación con cinturón de seguridad de 3 puntas del auto.<br>
+        Uso a contramarcha de 0 a 18 kg, con 1 posición reclinada específica.<br>
+        4 posiciones de reclinado (3 hacia el frente + 1 a contramarcha).<br>
+        Apoyacabeza ajustable en altura, se adapta al crecimiento del niño.<br>
+        La altura del arnés se ajusta automáticamente con la altura el apoyacabeza.<br>
+        Reductores internos removibles para mayor soporte en los primeros meses.<br>
+        Arnés de seguridad de 5 puntos, que ofrece un ajuste firme y seguro.<br>
+        <b>Dimensiones:</b> 67 cm (alto) x 47 cm (ancho) x 40 cm (profundidad).<br>
+        <br>
+        <strong>Tecnología Side Impact Tested:</strong> Proporciona protección adicional ante impactos laterales.<br>
+        <br>
+        <strong>Seguridad Certificada:</strong><br>
+        Cumple con la normativa europea ECE R44/04, garantizando un estándar internacional de protección infantil.<br>
+        <br>
+        La butaca Voyage es una excelente elección para familias que buscan una solución completa, segura y duradera desde el nacimiento hasta los 12 años. Con su estructura reforzada, tecnología de impacto lateral y facilidad de uso, es la compañera ideal para cada etapa del crecimiento de tu hijo.
+    </div>
+</div>
             </div>
         </div>
         <!-- Cunas y Practicunas -->
         <div class="section seccion-productos" id="cunas">
             <h2>Cunas y Practicunas</h2>
             <div class="gallery">
-                <div class="product-card" id="prod5">
-                    <img class="product-main-img" src="img/practicuna.jpg" data-imgidx="0" alt="Practicuna" onclick="openLightboxFromCard('prod5')">
-                    <div class="product-thumbs">
-                        <img class="product-thumb selected" data-full="img/practicuna.jpg" src="img/practicuna.jpg" alt="" onclick="setMainImage('prod5',0)">
-                        <img class="product-thumb" data-full="img/practicuna 1.jpg" src="img/practicuna 1.jpg" alt="" onclick="setMainImage('prod5',1)">
-                        <img class="product-thumb" data-full="img/practicuna 2.jpg" src="img/practicuna 2.jpg" alt="" onclick="setMainImage('prod5',2)">
-                        <img class="product-thumb" data-full="img/cuna 1.jpg" src="img/cuna 1.jpg" alt="" onclick="setMainImage('prod5',3)">
-                    </div>
-                    <span class="product-title">Practicuna</span>
-                    <div>Practicuna multifunción</div>
-                </div>
-                <div class="product-card" id="prod6">
-                    <img class="product-main-img" src="img/colecho.webp" data-imgidx="0" alt="Colecho" onclick="openLightboxFromCard('prod6')">
-                    <div class="product-thumbs">
-                        <img class="product-thumb selected" data-full="img/colecho.webp" src="img/colecho.webp" alt="" onclick="setMainImage('prod6',0)">
-                        <img class="product-thumb" data-full="img/colecho 2.webp" src="img/colecho 2.webp" alt="" onclick="setMainImage('prod6',1)">
-                    </div>
-                    <span class="product-title">Colecho</span>
-                    <div>Cama colecho para bebés</div>
-                </div>
-                <div class="product-card" id="prod7">
-                    <img class="product-main-img" src="img/cuna-colecho-easy-sleep-bebesit-gris-cuna-colecho-easy-sleep-bebesit-gris.webp" data-imgidx="0" alt="Cuna Colecho Easy Sleep Bebesit Gris" onclick="openLightboxFromCard('prod7')">
-                    <div class="product-thumbs">
-                        <img class="product-thumb selected" data-full="img/cuna-colecho-easy-sleep-bebesit-gris-cuna-colecho-easy-sleep-bebesit-gris.webp" src="img/cuna-colecho-easy-sleep-bebesit-gris-cuna-colecho-easy-sleep-bebesit-gris.webp" alt="" onclick="setMainImage('prod7',0)">
-                        <img class="product-thumb" data-full="img/cuna-colecho-easy-sleep-bebesit-gris-cuna-colecho-easy-sleep-bebesit-gris (1).webp" src="img/cuna-colecho-easy-sleep-bebesit-gris-cuna-colecho-easy-sleep-bebesit-gris (1).webp" alt="" onclick="setMainImage('prod7',1)">
-                        <img class="product-thumb" data-full="img/cuna-colecho-easy-sleep-bebesit-gris-cuna-colecho-easy-sleep-bebesit-gris (2).webp" src="img/cuna-colecho-easy-sleep-bebesit-gris-cuna-colecho-easy-sleep-bebesit-gris (2).webp" alt="" onclick="setMainImage('prod7',2)">
-                    </div>
-                    <span class="product-title">Cuna Colecho Easy Sleep Bebesit Gris</span>
-                    <div>Cuna colecho modelo Easy Sleep, color gris</div>
-                </div>
+                <div class="product-card" id="prod5" onclick="toggleDescripcion(this)">
+    <img class="product-main-img" src="img/practicuna.jpg" data-imgidx="0" alt="Practicuna" onclick="openLightboxFromCard('prod5');event.stopPropagation();">
+    <div class="product-thumbs">
+        <img class="product-thumb selected" data-full="img/practicuna.jpg" src="img/practicuna.jpg" alt="" onclick="setMainImage('prod5',0);event.stopPropagation();">
+        <img class="product-thumb" data-full="img/practicuna 1.jpg" src="img/practicuna 1.jpg" alt="" onclick="setMainImage('prod5',1);event.stopPropagation();">
+        <img class="product-thumb" data-full="img/practicuna 2.jpg" src="img/practicuna 2.jpg" alt="" onclick="setMainImage('prod5',2);event.stopPropagation();">
+        <img class="product-thumb" data-full="img/cuna 1.jpg" src="img/cuna 1.jpg" alt="" onclick="setMainImage('prod5',3);event.stopPropagation();">
+    </div>
+    <span class="product-title">Practicuna</span>
+    <div class="product-descripcion">Practicuna multifunción</div>
+</div>
+                <div class="product-card" id="prod6" onclick="toggleDescripcion(this)">
+    <img class="product-main-img" src="img/colecho.webp" data-imgidx="0" alt="Colecho" onclick="openLightboxFromCard('prod6');event.stopPropagation();">
+    <div class="product-thumbs">
+        <img class="product-thumb selected" data-full="img/colecho.webp" src="img/colecho.webp" alt="" onclick="setMainImage('prod6',0);event.stopPropagation();">
+        <img class="product-thumb" data-full="img/colecho 2.webp" src="img/colecho 2.webp" alt="" onclick="setMainImage('prod6',1);event.stopPropagation();">
+    </div>
+    <span class="product-title">Colecho</span>
+    <div class="product-descripcion">Cama colecho para bebés</div>
+</div>
+                <div class="product-card" id="prod7" onclick="toggleDescripcion(this)">
+    <img class="product-main-img" src="img/cuna-colecho-easy-sleep-bebesit-gris-cuna-colecho-easy-sleep-bebesit-gris.webp" data-imgidx="0" alt="Cuna Colecho Easy Sleep Bebesit Gris" onclick="openLightboxFromCard('prod7');event.stopPropagation();">
+    <div class="product-thumbs">
+        <img class="product-thumb selected" data-full="img/cuna-colecho-easy-sleep-bebesit-gris-cuna-colecho-easy-sleep-bebesit-gris.webp" src="img/cuna-colecho-easy-sleep-bebesit-gris-cuna-colecho-easy-sleep-bebesit-gris.webp" alt="" onclick="setMainImage('prod7',0);event.stopPropagation();">
+        <img class="product-thumb" data-full="img/cuna-colecho-easy-sleep-bebesit-gris-cuna-colecho-easy-sleep-bebesit-gris (1).webp" src="img/cuna-colecho-easy-sleep-bebesit-gris-cuna-colecho-easy-sleep-bebesit-gris (1).webp" alt="" onclick="setMainImage('prod7',1);event.stopPropagation();">
+        <img class="product-thumb" data-full="img/cuna-colecho-easy-sleep-bebesit-gris-cuna-colecho-easy-sleep-bebesit-gris (2).webp" src="img/cuna-colecho-easy-sleep-bebesit-gris-cuna-colecho-easy-sleep-bebesit-gris (2).webp" alt="" onclick="setMainImage('prod7',2);event.stopPropagation();">
+    </div>
+    <span class="product-title">Cuna Colecho Easy Sleep Bebesit Gris</span>
+    <div class="product-descripcion">Cuna colecho modelo Easy Sleep, color gris</div>
+</div>
             </div>
         </div>
         <div class="how-to-buy">
